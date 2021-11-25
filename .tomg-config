@@ -1,0 +1,21 @@
+[
+  {
+    "resultsPath": "",
+    "pluralizeNames": true,
+    "noConfigs": false,
+    "convertCaseFile": "pascal",
+    "convertCaseEntity": "pascal",
+    "convertCaseProperty": "camel",
+    "convertEol": "CRLF",
+    "propertyVisibility": "protected",
+    "lazy": false,
+    "activeRecord": false,
+    "generateConstructor": false,
+    "customNamingStrategyPath": "",
+    "relationIds": false,
+    "strictMode": "none",
+    "skipSchema": false,
+    "indexFile": false,
+    "exportType": "named"
+  }
+]

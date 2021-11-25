@@ -1,0 +1,76 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		title AdminLTE 3 | Log in
+		// Google Font: Source Sans Pro
+		link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')
+		// Font Awesome
+		link(rel='stylesheet' href='/plugins/fontawesome-free/css/all.min.css')
+		// icheck bootstrap
+		link(rel='stylesheet' href='/plugins/icheck-bootstrap/icheck-bootstrap.min.css')
+		// Theme style
+		link(rel='stylesheet' href='/dist/css/adminlte.css')
+	body.hold-transition.login-page
+		.login-box
+			.login-logo
+				a(href='/index2.html')
+					b TRUNG TÂM ANH NGỮ
+            .content-fluid
+                .row 
+                    .col-md-12
+                        .card.card-primary
+                            form#form-add-student(action="/user/add", method="post")
+                                .card-body
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label Họ và tên
+                                                input.form-control(type='text' placeholder='Họ và tên lót' name='fullname')
+                                        .col-md-6
+                                            .form-group
+                                                label Số điện thoại
+                                                input.form-control(type='text' placeholder='Số điện thoại' name='phone')
+
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label Email
+                                                input.form-control(type='text' placeholder='Email' name='email')
+                                        .col-md-6 
+                                            .form-group 
+                                                .row.mt-5
+                                                    .col-md-2
+                                                        label Giới tính:
+                                                    .col-md-3
+                                                        .form-check 
+                                                            input.form-check-input(type="radio", name="gender", value='1' checked)
+                                                            label Nam
+                                                    .col-md-5
+                                                        .form-check 
+                                                            input.form-check-input(type="radio", name="gender", value='0')
+                                                            label Nữ
+
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label Tên đăng nhập
+                                                input.form-control(type='text' placeholder='Tên đăng nhập' name='username')
+                                        .col-md-6
+                                            .form-group
+                                                label 
+                                                input.form-control(type='password' placeholder='Mật khẩu' name='password')														
+                                                    .input-group-append
+                                                        .input-group-text
+                                                            span.fas.fa-lock
+								
+							// /.col
+				// /.login-card-body
+				// /.login-box
+				// jQuery
+				script(src='/plugins/jquery/jquery.min.js')
+				// Bootstrap 4
+				script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+				// AdminLTE App
+				script(src='/dist/js/adminlte.min.js')
