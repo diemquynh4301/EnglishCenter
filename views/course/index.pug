@@ -4,7 +4,7 @@ html(lang='vn')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Document
+    title Khóa học
     link(rel='stylesheet' href='style.css')
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
@@ -20,13 +20,10 @@ html(lang='vn')
     link(rel='stylesheet' href='/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')
 body
   // NAVBAR
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light.py-3.fixed-top
-    .container-fluid
-      a.navbar-brand(href='#') Trung tâm anh ngữ
-      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
+      a.navbar-brand.GD TRUNG TÂM ANH NGỮ
+      #navbarSupportedContent.collapse.navbar-collapse.other
+        ul.navbar-nav.mr-auto
           li.nav-item
             a.nav-link(href='/home') Trang chủ
           li.nav-item
@@ -80,41 +77,23 @@ body
                         table#tab-faculty.table.table-bordered.table-striped
                           thead
                             tr
-                              th Mã số Khoa
-                              th Tên Khoa
-                              th Năm thành lập
-                              th Cập nhật lần cuối
-                              th Thao tác
+                              th Mã số lớp
+                              th Ngày bắt đầu
+                              th Ngày kết thúc
+                              th Lịch học
+                              th Chi nhánh
                           tbody
-                            //- each class in classList
-                            //-   tr 
-                            //-     td=class.ID
-                            //-     td=class.startday
-                            //-     td=class.endday
-                            //-     td=class.schedule
-                            //-     td.text-center
-                            //-       btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px;", data-id=faculty.id, data-name=faculty.name, data-eyear=faculty.establishedYear) 
-                            //-         i.fas.fa-edit
-                            //-       btn.btn-delete.btn.btn-danger.btn-xs(data-id=faculty.id)
-                            //-         i.fas.fa-trash 
-                            //- each faculty in facultyList 
-                            //- tr 
-                            //-   td=faculty.id
-                            //-   td=faculty.name
-                            //-   td=faculty.establishedYear
-                            //-   td=moment(faculty.updatedAt).fromNow()
-                            //-   td.text-center
-                            //-     btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px;", data-id=faculty.id, data-name=faculty.name, data-eyear=faculty.establishedYear) 
-                            //-       i.fas.fa-edit
-                            //-     btn.btn-delete.btn.btn-danger.btn-xs(data-id=faculty.id)
-                            //-       i.fas.fa-trash 
+                            each faculty in classList
+                              tr 
+                                td=faculty.ID
+                                td=faculty.startday
+                                td=faculty.endday
+                                td=faculty.schedule
+                                td=faculty.branch
+                                  
                         .modal-footer
-                          button.btn.btn-secondary(type='button' data-dismiss='modal') Close
-                          button.btn.btn-primary(type='button') Save changes
-
-                        
-                      
-                          
+                          button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng 
+                          button.btn.btn-primary(type='button') Đăng ký          
 
             <div class="testimoinial">
             <div class="small-container">

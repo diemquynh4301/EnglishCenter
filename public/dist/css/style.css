@@ -4,14 +4,19 @@
   box-sizing: border-box;
 }
 
+.head {
+  background-color: #f95a61 !important;
+}
+.GD {
+  color: white !important;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
-p {
-  font-size: 1rem;
-}
+
 h1 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 
@@ -45,7 +50,7 @@ h6 {
   font-weight: 700;
   outline: none;
   border: none;
-  background-color: rgb(248, 147, 110);
+  background-color: #f95a61;
   color: aliceblue;
   padding: 13px 30px;
   cursor: pointer;

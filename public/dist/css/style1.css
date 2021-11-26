@@ -1,0 +1,21 @@
+.head {
+  background-color: #f95a61 !important;
+}
+.btn {
+  background-color: f95a61;
+  border-color: f95a61;
+}
+.GD {
+  color: white !important;
+}
+.other {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.info {
+  padding-left: 7%;
+  padding-right: 7%;
+}
+.ending ul li:active a {
+  color: black !important;
+  /* lam sao cho no mau den dc z? */
+}

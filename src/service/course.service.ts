@@ -15,9 +15,8 @@ export class CourseService{
     return await this.courseRepository.find();
     }
     async getAllClass(): Promise<Class[]> {
-        return await this.classRepository.find();
+        return await this.classRepository.find({
+          relations: ["course"]
+        });
       }
-//       {
-//         relations: ["course"]
-//       }
 }

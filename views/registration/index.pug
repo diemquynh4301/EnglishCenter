@@ -1,0 +1,81 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+    link(rel='stylesheet' href='../../dist/css/style1.css')
+    title Contact
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
+      a.navbar-brand.GD TRUNG TÂM ANH NGỮ
+      #navbarSupportedContent.collapse.navbar-collapse.other
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/home') Trang chủ
+          li.nav-item
+            a.nav-link(href='/course') Khóa học
+          li.nav-item
+            a.nav-link(href='#') Tài khoản
+          li.nav-item
+            a.nav-link(href='#') Hỗ trợ
+          li.nav-item
+            a.nav-link(href='#') Liên hệ
+    .content-fluid
+      .row 
+        .col-12
+          .card.card-primary
+            form#form-add-user(action="/login/add", method="post")
+                .card-body
+                  .row
+                    .form-group
+                      label Họ và tên
+                      input.form-control(type='text' placeholder='Họ và tên' name='fullname')
+                  .row
+                    .form-group
+                      label Số điện thoại
+                      input.form-control(type='text' placeholder='Số điện thoại' name='phone')
+
+                    .row
+                      .form-group
+                        label Email
+                        input.form-control(type='text' placeholder='Email' name='email')
+                    .row
+                      .form-group 
+                        .row.mt-12
+                          .col-md-6
+                            label Giới tính:
+                          .col-md-3
+                            .form-check 
+                              input.form-check-input(type="radio", name="gender", value='1' checked)
+                              label Nam
+                          .col-md-3
+                            .form-check 
+                              input.form-check-input(type="radio", name="gender", value='0')
+                              label Nữ
+                    .row
+                      .form-group
+                        label Tên đăng nhập
+                        input.form-control(type='text' placeholder='Tên đăng nhập' name='username')
+                    .row
+                      .form-group
+                        label Mật khẩu
+                        input.form-control(type='password' placeholder='Mật khẩu' name='password')
+                .card-footer.text-center
+                  button.btn.btn-primary(type='submit') Đăng ký
+    .col-md-3
+    hr(width='100%' align='center')
+    footer
+      ul.nav.justify-content-center.ending
+        li.nav-item
+          a.nav-link.active(href='#') Linkedln
+        li.nav-item
+          a.nav-link(href='#') Github
+        li.nav-item
+          a.nav-link(href='#') Facebook
+        li.nav-item
+          a.nav-link(href='#') Twitter
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')

@@ -16,13 +16,10 @@ html(lang='vn')
     link(rel='stylesheet' href='../../dist/css/style.css')
 body
   // NAVBAR
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light.py-3.fixed-top
-    .container-fluid
-      a.navbar-brand(href='#') Trung tâm anh ngữ
-      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
+      a.navbar-brand.GD TRUNG TÂM ANH NGỮ
+      #navbarSupportedContent.collapse.navbar-collapse.other
+        ul.navbar-nav.mr-auto
           li.nav-item
             a.nav-link(href='/home') Trang chủ
           li.nav-item
@@ -32,8 +29,7 @@ body
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
-            a.nav-link(href='#') Liên hệ
-          
+            a.nav-link(href='#') Liên hệ        
   // Home
   section.home
     .container
