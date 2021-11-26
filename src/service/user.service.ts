@@ -18,4 +18,8 @@ export class UserService {
       async add(user: User): Promise<void> {
         await this.userRepository.insert(user);
       }
+
+      async getByUsername(username): Promise<User> {
+        return await this.userRepository.findOne(username);
+    }
 }

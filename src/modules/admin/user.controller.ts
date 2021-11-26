@@ -15,11 +15,31 @@ export class UserController{
             userList: userList
         }
     }
-    @Post("add")
-    async add(@Body() user: User, @Res() res: Response) {
-        // const salt = await bcrypt.genSalt(15);
-        // user.pass = await bcrypt.hash(user.pass, salt);
-        await this.userService.add(user);
-        return res.redirect('/course');        
+
+    @Post("/checkId")
+    async checkId(@Body('username') username: string) {
+        let user = await this.userService.getByUsername(username);
+        if (!user) return {
+            status: "NOT_FOUND"
+        }
+
+        return {
+            status: "FOUND"
+        }
+    }
+
+
+    @Post("/add")
+    async add(@Body() user: any, @Res() res: Response) {
+        var userToAdd: User = new User();
+        userToAdd.fullname = user.fullname;
+        userToAdd.phone = user.phone;
+        userToAdd.email = user.email;
+        userToAdd.username = user.username;
+        userToAdd.pass = user.password;
+        userToAdd.gender = (user.gender === '1');
+
+        await this.userService.add(userToAdd);
+        res.redirect("/course");
     }
 }

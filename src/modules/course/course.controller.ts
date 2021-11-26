@@ -9,8 +9,10 @@ export class CourseController{
     @Render('course/index')
     async index() {
         const courseList = await this.courseService.getAllCourse();
+        const classList = await this.courseService.getAllClass();
         return {
-            courseList: courseList
+            courseList: courseList,
+            classList: classList
         }
     }
 }

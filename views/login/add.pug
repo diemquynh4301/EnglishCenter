@@ -21,7 +21,7 @@ html(lang='en')
                 .row 
                     .col-12
                         .card.card-primary
-                            form#form-add-student(action="/login/add", method="post")
+                            form#form-add-user(action="/login/add", method="post")
                                 .card-body
                                     .row
                                         .form-group
@@ -69,3 +69,5 @@ html(lang='en')
                 script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
                 // AdminLTE App
                 script(src='/dist/js/adminlte.min.js')
+                block script 
+                    script(src="/js/login.js") 
