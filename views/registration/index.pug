@@ -22,48 +22,26 @@ html(lang='en')
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
             a.nav-link(href='#') Liên hệ
-    .content-fluid
-      .row 
-        .col-12
-          .card.card-primary
-            form#form-add-user(action="/login/add", method="post")
-                .card-body
-                  .row
-                    .form-group
-                      label Họ và tên
-                      input.form-control(type='text' placeholder='Họ và tên' name='fullname')
-                  .row
-                    .form-group
-                      label Số điện thoại
-                      input.form-control(type='text' placeholder='Số điện thoại' name='phone')
-
-                    .row
-                      .form-group
-                        label Email
-                        input.form-control(type='text' placeholder='Email' name='email')
-                    .row
-                      .form-group 
-                        .row.mt-12
-                          .col-md-6
-                            label Giới tính:
-                          .col-md-3
-                            .form-check 
-                              input.form-check-input(type="radio", name="gender", value='1' checked)
-                              label Nam
-                          .col-md-3
-                            .form-check 
-                              input.form-check-input(type="radio", name="gender", value='0')
-                              label Nữ
-                    .row
-                      .form-group
-                        label Tên đăng nhập
-                        input.form-control(type='text' placeholder='Tên đăng nhập' name='username')
-                    .row
-                      .form-group
-                        label Mật khẩu
-                        input.form-control(type='password' placeholder='Mật khẩu' name='password')
-                .card-footer.text-center
-                  button.btn.btn-primary(type='submit') Đăng ký
+    form.row
+      .col-md-3
+      .col-md-6.info
+        h3 Đăng ký lớp học
+        div
+          label Họ và tên
+          input.form-control(type='text' placeholder='Họ và tên')
+        div
+          label Khóa học
+          input.form-control(type='text' placeholder='Enter email')
+          small We'll never share your email with anyone else.
+        div
+          br
+          label Subject
+          input.form-control(type='email' placeholder='Subject')
+        div
+          label Message
+          textarea#exampleFormControlTextarea1.form-control(rows='3')
+          br
+        button.btn.btn-primary(type='submit') Submit
     .col-md-3
     hr(width='100%' align='center')
     footer

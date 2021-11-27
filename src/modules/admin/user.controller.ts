@@ -29,17 +29,17 @@ export class UserController{
     }
 
 
-    @Post("/add")
-    async add(@Body() user: any, @Res() res: Response) {
-        var userToAdd: User = new User();
-        userToAdd.fullname = user.fullname;
-        userToAdd.phone = user.phone;
-        userToAdd.email = user.email;
-        userToAdd.username = user.username;
-        userToAdd.pass = user.password;
-        userToAdd.gender = (user.gender === '1');
+    // @Post("/add")
+    // async add(@Body() user: any, @Res() res: Response) {
+    //     var userToAdd: User = new User();
+    //     userToAdd.fullname = user.fullname;
+    //     userToAdd.phone = user.phone;
+    //     userToAdd.email = user.email;
+    //     userToAdd.username = user.username;
+    //     userToAdd.pass = user.password;
+    //     userToAdd.gender = (user.gender === '1');
 
-        await this.userService.add(userToAdd);
-        res.redirect("/course");
-    }
+    //     await this.userService.add(userToAdd);
+    //     res.redirect("/course");
+    // }
 }

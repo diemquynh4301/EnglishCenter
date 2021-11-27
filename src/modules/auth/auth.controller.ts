@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { AuthGuard } from "@nestjs/passport";
 import { UserService } from "src/service/user.service";
 import { User } from "src/models/user.entity";
+import { Registant } from "src/models/registant.entity";
 
 @Controller('login')
 export class AuthController {
@@ -12,8 +13,9 @@ export class AuthController {
     async loginPage(@Req() req: Request) {}
 
     @Post('/add')
-    async add(@Body() user: User, @Res() res: Response) {
+    async add(@Body() user: User, @Body() registant: Registant, @Res() res: Response) {
         await this.userService.add(user);
+        await this.userService.addRegistant(registant);
         return res.redirect('/course');   
     }    
 

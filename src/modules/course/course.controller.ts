@@ -10,6 +10,14 @@ export class CourseController{
     async index() {
         const courseList = await this.courseService.getAllCourse();
         const classList = await this.courseService.getAllClass();
+        // var classList1 = []
+        // for (var class of classList){
+        //     classList1.push({
+        //         ...class,
+        //         startday: moment(class.startday).format("dd/MM/yyyy")
+        //     })
+        // }
+        console.log(classList);
         return {
             courseList: courseList,
             classList: classList
