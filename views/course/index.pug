@@ -27,8 +27,14 @@ body
             a.nav-link(href='/home') Trang chủ
           li.nav-item
             a.nav-link(href='/course') Khóa học
-          li.nav-item
-            a.nav-link(href='#') Tài khoản
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | Tài khoản
+            ul.dropdown-menu(aria-labelledby='navbarDropdown')
+              li
+                a.dropdown-item(href='#') Thông tin cá nhân
+              li
+                a.dropdown-item(href='/logout') Đăng xuất
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item

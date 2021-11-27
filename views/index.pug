@@ -5,7 +5,6 @@ html(lang='vn')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Document
-    link(rel='stylesheet' href='style.css')
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
     link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet')
@@ -24,8 +23,14 @@ body
             a.nav-link(href='/home') Trang chủ
           li.nav-item
             a.nav-link(href='/course') Khóa học
-          li.nav-item
-            a.nav-link(href='#') Tài khoản
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | Tài khoản
+            ul.dropdown-menu(aria-labelledby='navbarDropdown')
+              li
+                a.dropdown-item(href='#') Thông tin cá nhân
+              li
+                a.dropdown-item(href='/logout') Đăng xuất
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
