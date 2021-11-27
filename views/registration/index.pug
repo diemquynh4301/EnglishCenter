@@ -44,13 +44,10 @@ html(lang='vn')
         .col-2
           p Khóa học / #{classTaken.coursename}
           h1 [Khóa học] #{classTaken.coursename}
-          h4 #{courseTaken.fee} VNĐ
+          h4 #{classTaken.branchAddress}
           p
             b Mã lớp: 
             | #{classTaken.ID}
-          p
-            b Chi nhánh: 
-            | #{classTaken.branchAddress}
           p
             b Ngày khai giảng: 
             | #{moment(classTaken.startday).format('DD/MM/YYYY')}
@@ -63,20 +60,22 @@ html(lang='vn')
           p
             b Ca học: 
             |  #{classTaken.schedule}
-          a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký
-        // Modal
+
+          button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký
         #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
-          .modal-dialog(role='document')
+        
+          .modal-dialog.modal-lg
             .modal-content
               .modal-header
-                h5#exampleModalLabel.modal-title Xác nhận
+                h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
                 button.close(type='button' data-dismiss='modal' aria-label='Close')
                   span(aria-hidden='true') &times;
-              .modal-body
-                | Bạn sẽ đăng ký lớp học này?
-              .modal-footer
-                button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                button.btn.btn-primary(type='button') Đăng ký
+              form
+                .modal-body
+                  p.text-center BẠN SẼ ĐĂNG KÝ KHÓA HỌC NÀY?
+                .modal-footer
+                  button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
+                  button.btn.btn-primary(type='submit') Xác nhận
             
           <!--footer-->
     .row.container.mx-auto.pt-5(style={'background-color': 'black', 'color': 'white', 'margin':'0px'})
@@ -96,9 +95,8 @@ html(lang='vn')
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống trung tâm
         ul
-          li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
-          li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
-          li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
+          li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
+          li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống tư vấn
         ul
