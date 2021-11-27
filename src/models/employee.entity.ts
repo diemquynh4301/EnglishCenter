@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToOne, OneToOne, PrimaryColumn} from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryColumn} from "typeorm";
 import { Branch } from "./branch.entity";
 import { User } from "./user.entity";
     @Entity()
@@ -15,4 +15,8 @@ import { User } from "./user.entity";
         @ManyToOne(() => Branch)
         @JoinTable()
         branch: Branch;
+
+        @OneToOne(() => User)
+        @JoinColumn({ name: 'username' })
+        user: User;
     }

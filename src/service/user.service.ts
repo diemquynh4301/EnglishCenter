@@ -8,7 +8,7 @@ import { Repository } from "typeorm";
 export class UserService {
       constructor(
         @InjectRepository(User) private userRepository: Repository<User>,
-        @InjectRepository(Registant) private registantRepository: Repository<Registant>,
+        @InjectRepository(Registant) private registantRepository: Repository<Registant>
       ) {}
       async getAll(): Promise<User[]> {
         return await this.userRepository.find();

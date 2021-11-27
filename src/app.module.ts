@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { AdminModule } from './modules/admin/admin.module';
@@ -14,7 +15,7 @@ import { UserService } from './service/user.service';
     AdminModule, 
     AuthModule,
     TypeOrmModule.forRoot(),
-
+    ConfigModule.forRoot(),
   ],
   
 })

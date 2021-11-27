@@ -27,8 +27,14 @@ body
             a.nav-link(href='/home') Trang chủ
           li.nav-item
             a.nav-link(href='/course') Khóa học
-          li.nav-item
-            a.nav-link(href='#') Tài khoản
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | Tài khoản
+            ul.dropdown-menu(aria-labelledby='navbarDropdown')
+              li
+                a.dropdown-item(href='#') Thông tin cá nhân
+              li
+                a.dropdown-item(href='/logout') Đăng xuất
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
@@ -69,6 +75,7 @@ body
                               th Ngày kết thúc
                               th Lịch học
                               th Chi nhánh
+                              th
                           tbody
                             each faculty in classList
                               tr 
@@ -77,12 +84,13 @@ body
                                 td=moment(faculty.endday).format('DD/MM/YYYY')
                                 td=faculty.schedule
                                 td=faculty.branch.address
-                            
+                                td.text-center
+                                  a.btn.btn-primary(style="margin-right: 5px;", href='/registration/'+ faculty.ID) Chi tiết
+                                    //- i.fas.fa-edit
+                                  
                         .modal-footer
                           button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                          button.btn.btn-primary(type='button' onclick="window.location.href='/registration'") Đăng ký
-
-                        
+                                            
                       
                           
 

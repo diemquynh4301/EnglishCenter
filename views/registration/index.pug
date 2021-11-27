@@ -1,59 +1,129 @@
+//- doctype html
+//- html(lang='en')
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(http-equiv='X-UA-Compatible' content='IE=edge')
+//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+//-     link(rel='stylesheet' href='../../dist/css/style1.css')
+//-     title Contact
+//-   body
+//-     nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
+//-       a.navbar-brand.GD TRUNG TÂM ANH NGỮ
+//-       #navbarSupportedContent.collapse.navbar-collapse.other
+//-         ul.navbar-nav.mr-auto
+//-           li.nav-item
+//-             a.nav-link(href='/home') Trang chủ
+//-           li.nav-item
+//-             a.nav-link(href='/course') Khóa học
+//-           li.nav-item
+//-             a.nav-link(href='#') Tài khoản
+//-           li.nav-item
+//-             a.nav-link(href='#') Hỗ trợ
+//-           li.nav-item
+//-             a.nav-link(href='#') Liên hệ
+//-     form.row
+//-       .col-md-3
+//-       .col-md-6.info
+//-         h3 Đăng ký lớp học
+//-         div
+//-           .form-group 
+//-             label Họ và tên
+//-             input.form-control(type='text' placeholder='Họ và tên')
+//-         div
+//-             .form-group
+//-                 label Họ và tên
+//-                 input.form-control(type='text' placeholder='Họ và tên' name='fullname')
+//-         div
+//-             .form-group
+//-                 label Số điện thoại
+//-                 input.form-control(type='text' placeholder='Số điện thoại' name='phone')
+//-         div
+//-             .form-group
+//-                 label Email
+//-                 input.form-control(type='text' placeholder='Email' name='email')
+//-         div
+//-             .form-group 
+//-                 .row.mt-12
+//-                     .col-md-6
+//-                         label Giới tính:
+//-                     .col-md-3
+//-                         .form-check 
+//-                             input.form-check-input(type="radio", name="gender", value='1' checked)
+//-                             label Nam
+//-                     .col-md-3
+//-                         .form-check 
+//-                             input.form-check-input(type="radio", name="gender", value='0')
+//-                             label Nữ
+//-         div
+//-           .form-group 
+//-             label Khóa học 
+//-             select#sel-course.form-control.select2(name="coursename", style="width: 100%;")
+//-               each course in courseList 
+//-                 option=course.coursename
+//-         div
+//-           .form-group 
+//-             label Lớp 
+//-             select#sel-class.form-control.select2(name="classname", style="width: 100%;")
+//-               each course in classList 
+//-                 option #{course.ID} - #{course.schedule}
+//-           br
+//-         button.btn.btn-primary(type='submit') Submit
+//-     .col-md-3
+//-     hr(width='100%' align='center')
+//-     footer
+//-       ul.nav.justify-content-center.ending
+//-         li.nav-item
+//-           a.nav-link.active(href='#') Linkedln
+//-         li.nav-item
+//-           a.nav-link(href='#') Github
+//-         li.nav-item
+//-           a.nav-link(href='#') Facebook
+//-         li.nav-item
+//-           a.nav-link(href='#') Twitter
+//-     script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+//-     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+//-     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
 doctype html
-html(lang='en')
+html(lang='vn')
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-    link(rel='stylesheet' href='../../dist/css/style1.css')
-    title Contact
+    title Khóa học
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
+    link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+    link(rel='stylesheet' href='../../dist/css/course.css')
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
-      a.navbar-brand.GD TRUNG TÂM ANH NGỮ
-      #navbarSupportedContent.collapse.navbar-collapse.other
-        ul.navbar-nav.mr-auto
-          li.nav-item
-            a.nav-link(href='/home') Trang chủ
-          li.nav-item
-            a.nav-link(href='/course') Khóa học
-          li.nav-item
-            a.nav-link(href='#') Tài khoản
-          li.nav-item
-            a.nav-link(href='#') Hỗ trợ
-          li.nav-item
-            a.nav-link(href='#') Liên hệ
-    form.row
-      .col-md-3
-      .col-md-6.info
-        h3 Đăng ký lớp học
-        div
-          label Họ và tên
-          input.form-control(type='text' placeholder='Họ và tên')
-        div
-          label Khóa học
-          input.form-control(type='text' placeholder='Enter email')
-          small We'll never share your email with anyone else.
-        div
-          br
-          label Subject
-          input.form-control(type='email' placeholder='Subject')
-        div
-          label Message
-          textarea#exampleFormControlTextarea1.form-control(rows='3')
-          br
-        button.btn.btn-primary(type='submit') Submit
-    .col-md-3
-    hr(width='100%' align='center')
-    footer
-      ul.nav.justify-content-center.ending
-        li.nav-item
-          a.nav-link.active(href='#') Linkedln
-        li.nav-item
-          a.nav-link(href='#') Github
-        li.nav-item
-          a.nav-link(href='#') Facebook
-        li.nav-item
-          a.nav-link(href='#') Twitter
-    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+    .small-container.course-detail
+      .row
+        .col-2
+          img(src="../dist/img/ielts-4.5.1.png")
+        .col-2
+          p Khóa học / Ielts 4.5/ [308 Trần Phú] Online IELTS Foundation Level 4.5
+          h1 [308 Trần Phú] Online IELTS Foundation Level 4.5
+          h4 6.000.000 đ
+          p
+            b Điểm đầu ra:
+            | 4.5
+          p
+            b Ngày khai giảng:
+            | 30/11/2021
+          p
+            b Giáo viên:
+            | Nguyễn Thị A
+          p
+            b Số lượng học viên:
+            | 20
+          p
+            b Thời lượng:
+            | 24 buổi
+          p
+            b Ca học:
+            | 09:00 - 11:00
+          p
+            b Địa chỉ trung tâm:
+            | 308 Trần Phú (đoạn 2 chiều giữa An Dương Vương và Nguyễn Trãi) , Phường 8, Quận 5, Tp.HCM
+          a.btn(href='') Đăng ký

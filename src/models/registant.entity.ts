@@ -1,6 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinTable, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
-import { Employee } from "./employee.entity";
-import { User } from "./user.entity";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @Entity()
 export class Registant {
@@ -16,10 +14,9 @@ export class Registant {
     @Column()
     confirmSituation: string;
 
-    @CreateDateColumn()
-    createdAt: Date;
-
     @UpdateDateColumn()
     updatedAt: Date;
+
 }
+    
     

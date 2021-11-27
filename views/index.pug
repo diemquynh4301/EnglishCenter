@@ -24,8 +24,14 @@ body
             a.nav-link(href='/home') Trang chủ
           li.nav-item
             a.nav-link(href='/course') Khóa học
-          li.nav-item
-            a.nav-link(href='#') Tài khoản
+           li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | Tài khoản
+            ul.dropdown-menu(aria-labelledby='navbarDropdown')
+              li
+                a.dropdown-item(href='#') Thông tin cá nhân
+              li
+                a.dropdown-item(href='/logout') Đăng xuất
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
@@ -35,20 +41,21 @@ body
     .container
       .row
         .col-6
-          h2 Hệ thống trung tâm
-          h2
-            span ANH NGỮ NHÓM 8
-              span
-                p Luyện thi IELTS, TOEIC cam kết đầu ra
-                p Đạt điểm số mong muốn và tiết kiệm 80% thời gian tự học
-                form.inline(action='/login')
-                  button.btn1 Đăng ký ngay
+          .small-container1
+          .col-6(style={'margin-bottom':'50px'})
+            h2.tle(style={'font-weight':'500','margin-bottom':'1rem'}) Hệ thống trung tâm
+              span.txprim(style={'display':'block', 'color': 'rgba(218,0,55,1)'}) Anh Ngữ Nhóm 8
+            p Luyện thi IELTS, TOEIC cam kết đầu ra
+            p Đạt điểm số mong muốn và tiết kiệm 80% thời gian tự học
+            form.inline(action='/course')
+              button.btn1 Đăng ký ngay
 
         .col-6
+          img(src="../dist/img/ielts-4.5.1.png")
       
         .col-12
           // Khóa học
-          .small-container(style='background-color:pink;')
+          .small-container
             h2.title Các khóa học
             .row
               .col-4
@@ -202,35 +209,34 @@ body
             </div>
             </div>
             <!--footer-->
-          footer.mt-5.py-5
-            .row.container.mx-auto.pt-5
+          .row.container.mx-auto.pt-5(style={'background-color': 'black', 'color': 'white', 'margin':'0px'})
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Liên kết
+                h5(style={'color': 'white'}) Liên kết
                 ul
                   li
-                    a(href='#') Thi IELTS tại BC
+                    a(href='#' style={'color': 'white'}) Thi IELTS tại BC
                   li
-                    a(href='#') Chính sách bảo mật
+                    a(href='#' style={'color': 'white'}) Chính sách bảo mật
                   li
-                    a(href='#') Điều khoản sử dụng
+                    a(href='#' style={'color': 'white'}) Điều khoản sử dụng
                   li
-                    a(href='#') Chính sách liên kết
+                    a(href='#' style={'color': 'white'}) Chính sách liên kết
                   li
-                    a(href='#') Quy chế 
+                    a(href='#' style={'color': 'white'}) Quy chế 
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Hệ thống trung tâm
+                h5(style={'color': 'white'}) Hệ thống trung tâm
                 ul
                   li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
                   li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
                   li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Hệ thống tư vấn
+                h5(style={'color': 'white'}) Hệ thống tư vấn
                 ul
                   li Tư vấn chương trình học: 1900000000
                   li Tư vấn thi thử: 19000000000
                   li Đăng ký thi BC: 1900000000
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Thông tin
+                h5(style={'color': 'white'}) Thông tin
                 p Công ty cổ phần Edu
                 p Giấy chứng nhận số:
                 p Ngày cấp phép:
