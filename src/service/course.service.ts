@@ -12,7 +12,15 @@ export class CourseService{
       ) {}
 
     async getAllCourse(): Promise<Course[]> {
-    return await this.courseRepository.find();
+      return await this.courseRepository.find();
+    }
+
+    async getOne(coursename: string): Promise<Course> {
+      return await this.courseRepository.findOne(coursename);
+    }
+
+    async getOneClass(ID: string): Promise<Class> {
+      return await this.classRepository.findOne(ID);
     }
 
     async getAllClass(): Promise<Class[]> {

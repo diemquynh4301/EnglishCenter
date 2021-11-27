@@ -99,6 +99,9 @@ h6 {
   padding-left: 25px;
   padding-right: 25px;
 }
+.small-container1{
+  display:flex;
+}
 .row {
   display: flex;
   align-items: center;

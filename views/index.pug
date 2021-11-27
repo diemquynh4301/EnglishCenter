@@ -5,7 +5,6 @@ html(lang='vn')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Document
-    link(rel='stylesheet' href='style.css')
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
     link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet')
@@ -24,7 +23,7 @@ body
             a.nav-link(href='/home') Trang chủ
           li.nav-item
             a.nav-link(href='/course') Khóa học
-           li.nav-item.dropdown
+          li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
               | Tài khoản
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
@@ -40,8 +39,7 @@ body
   section.home
     .container
       .row
-        .col-6
-          .small-container1
+        .small-container1
           .col-6(style={'margin-bottom':'50px'})
             h2.tle(style={'font-weight':'500','margin-bottom':'1rem'}) Hệ thống trung tâm
               span.txprim(style={'display':'block', 'color': 'rgba(218,0,55,1)'}) Anh Ngữ Nhóm 8
@@ -49,6 +47,8 @@ body
             p Đạt điểm số mong muốn và tiết kiệm 80% thời gian tự học
             form.inline(action='/course')
               button.btn1 Đăng ký ngay
+          .col-6
+            img(src="../dist/img/ielts-4.5.1.png")
 
         .col-6
           img(src="../dist/img/ielts-4.5.1.png")

@@ -7,16 +7,20 @@ import { UserService } from "src/service/user.service";
 @Controller('registration')
 export class RegistrationController{
     constructor(private courseService: CourseService, private userService: UserService) {}
-    @Get(':ID')
+    @Get(':id')
     @UseGuards(AuthGuard('jwt'))
     @Render('registration/index')
     async index(@Param() params) {
         const courseList = await this.courseService.getAllCourse();
         const classList = await this.courseService.getAllClass();
-        // var ID = params.ID;
+        var courseTaken = await this.courseService.getOne(params.coursename);
+        var classTaken = await this.courseService.getOneClass(params.id);
+        console.log(classTaken);
         return {
             courseList: courseList,
-            classList: classList
+            classList: classList,
+            courseTaken,
+            classTaken
         }
     }
 

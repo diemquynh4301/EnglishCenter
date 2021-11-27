@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
 import { Branch } from "./branch.entity"
 import { Course } from "./course.entity";
 @Entity()
@@ -15,11 +15,17 @@ export class Class{
     @Column()
     schedule: string;
 
-    @ManyToOne(() => Course)
-    @JoinTable()
+    @Column()
+    coursename:string;
+
+    @Column()
+    branchAddress:string;
+
+    @ManyToOne(() => Course, {cascade: true })
+    @JoinColumn({ name: 'coursename' })
     course: Course;
 
     @ManyToOne(() => Branch)
-    @JoinTable()
+    @JoinColumn({ name: 'branchAddress' })
     branch: Branch;
 }

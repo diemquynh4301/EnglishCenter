@@ -1,129 +1,85 @@
-//- doctype html
-//- html(lang='en')
-//-   head
-//-     meta(charset='UTF-8')
-//-     meta(http-equiv='X-UA-Compatible' content='IE=edge')
-//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-//-     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-//-     link(rel='stylesheet' href='../../dist/css/style1.css')
-//-     title Contact
-//-   body
-//-     nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
-//-       a.navbar-brand.GD TRUNG TÂM ANH NGỮ
-//-       #navbarSupportedContent.collapse.navbar-collapse.other
-//-         ul.navbar-nav.mr-auto
-//-           li.nav-item
-//-             a.nav-link(href='/home') Trang chủ
-//-           li.nav-item
-//-             a.nav-link(href='/course') Khóa học
-//-           li.nav-item
-//-             a.nav-link(href='#') Tài khoản
-//-           li.nav-item
-//-             a.nav-link(href='#') Hỗ trợ
-//-           li.nav-item
-//-             a.nav-link(href='#') Liên hệ
-//-     form.row
-//-       .col-md-3
-//-       .col-md-6.info
-//-         h3 Đăng ký lớp học
-//-         div
-//-           .form-group 
-//-             label Họ và tên
-//-             input.form-control(type='text' placeholder='Họ và tên')
-//-         div
-//-             .form-group
-//-                 label Họ và tên
-//-                 input.form-control(type='text' placeholder='Họ và tên' name='fullname')
-//-         div
-//-             .form-group
-//-                 label Số điện thoại
-//-                 input.form-control(type='text' placeholder='Số điện thoại' name='phone')
-//-         div
-//-             .form-group
-//-                 label Email
-//-                 input.form-control(type='text' placeholder='Email' name='email')
-//-         div
-//-             .form-group 
-//-                 .row.mt-12
-//-                     .col-md-6
-//-                         label Giới tính:
-//-                     .col-md-3
-//-                         .form-check 
-//-                             input.form-check-input(type="radio", name="gender", value='1' checked)
-//-                             label Nam
-//-                     .col-md-3
-//-                         .form-check 
-//-                             input.form-check-input(type="radio", name="gender", value='0')
-//-                             label Nữ
-//-         div
-//-           .form-group 
-//-             label Khóa học 
-//-             select#sel-course.form-control.select2(name="coursename", style="width: 100%;")
-//-               each course in courseList 
-//-                 option=course.coursename
-//-         div
-//-           .form-group 
-//-             label Lớp 
-//-             select#sel-class.form-control.select2(name="classname", style="width: 100%;")
-//-               each course in classList 
-//-                 option #{course.ID} - #{course.schedule}
-//-           br
-//-         button.btn.btn-primary(type='submit') Submit
-//-     .col-md-3
-//-     hr(width='100%' align='center')
-//-     footer
-//-       ul.nav.justify-content-center.ending
-//-         li.nav-item
-//-           a.nav-link.active(href='#') Linkedln
-//-         li.nav-item
-//-           a.nav-link(href='#') Github
-//-         li.nav-item
-//-           a.nav-link(href='#') Facebook
-//-         li.nav-item
-//-           a.nav-link(href='#') Twitter
-//-     script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-//-     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
-//-     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
 doctype html
 html(lang='vn')
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Khóa học
+    title Document
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
     link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
-    link(rel='stylesheet' href='../../dist/css/course.css')
+    link(rel='stylesheet' href='../../dist/css/style.css')
+    // DataTables
+    link(rel='stylesheet' href='/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')
+    link(rel='stylesheet' href='/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')
+    link(rel='stylesheet' href='/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')
+
   body
     .small-container.course-detail
       .row
         .col-2
           img(src="../dist/img/ielts-4.5.1.png")
         .col-2
-          p Khóa học / Ielts 4.5/ [308 Trần Phú] Online IELTS Foundation Level 4.5
-          h1 [308 Trần Phú] Online IELTS Foundation Level 4.5
-          h4 6.000.000 đ
+          p Khóa học / #{classTaken.coursename}
+          h1 [Khóa học] #{classTaken.coursename}
+          h4 #{courseTaken.fee} VNĐ
           p
-            b Điểm đầu ra:
-            | 4.5
+            b Mã lớp: 
+            | #{classTaken.ID}
           p
-            b Ngày khai giảng:
-            | 30/11/2021
+            b Chi nhánh: 
+            | #{classTaken.branchAddress}
           p
-            b Giáo viên:
-            | Nguyễn Thị A
+            b Ngày khai giảng: 
+            | #{moment(classTaken.startday).format('DD/MM/YYYY')}
           p
-            b Số lượng học viên:
-            | 20
+            b Ngày kết thúc: 
+            | #{moment(classTaken.endday).format('DD/MM/YYYY')}
           p
-            b Thời lượng:
-            | 24 buổi
+            b Thời lượng: 
+            | #{courseTaken.totaltime} giờ
           p
-            b Ca học:
-            | 09:00 - 11:00
-          p
-            b Địa chỉ trung tâm:
-            | 308 Trần Phú (đoạn 2 chiều giữa An Dương Vương và Nguyễn Trãi) , Phường 8, Quận 5, Tp.HCM
-          a.btn(href='') Đăng ký
+            b Ca học: 
+            |  #{classTaken.schedule}
+          a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký
+        // Modal
+        #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Xác nhận
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                | Bạn sẽ đăng ký lớp học này?
+              .modal-footer
+                button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
+                button.btn.btn-primary(type='button') Đăng ký
+          script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous')
+          script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js' integrity='sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13' crossorigin='anonymous')
+          // jQuery
+          script(src='/plugins/jquery/jquery.min.js')
+          // Bootstrap 4
+          script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+          // DataTables  & Plugins
+          script(src='/plugins/datatables/jquery.dataTables.min.js')
+          script(src='/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')
+          script(src='/plugins/datatables-responsive/js/dataTables.responsive.min.js')
+          script(src='/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')
+          script(src='/plugins/datatables-buttons/js/dataTables.buttons.min.js')
+          script(src='/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')
+          script(src='/plugins/jszip/jszip.min.js')
+          script(src='/plugins/pdfmake/pdfmake.min.js')
+          script(src='/plugins/pdfmake/vfs_fonts.js')
+          script(src='/plugins/datatables-buttons/js/buttons.html5.min.js')
+          script(src='/plugins/datatables-buttons/js/buttons.print.min.js')
+          script(src='/plugins/datatables-buttons/js/buttons.colVis.min.js')
+          // AdminLTE App
+          script(src='/dist/js/adminlte.min.js')
+          block script
+          script(src="/js/table.js") 
+
