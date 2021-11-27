@@ -4,8 +4,7 @@ html(lang='vn')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Khóa học
-    link(rel='stylesheet' href='style.css')
+    title Document
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
     link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet')
@@ -44,14 +43,11 @@ body
           //-     a.dropdown-item(href='#') Another action
           //-     a.dropdown-item(href='#') Something else here
   // Home
-  section.home
-    .container
-      .row
-        .col-12
+  .container
           // Khóa học
-          .small-container(style='background-color:pink;')
+          .small-container
             h2.title Các khóa học
-              .row
+            .row1
                 each course in courseList
                   .col-4
                     img(src='dist/img/ielts-4.5.1.png')
@@ -62,13 +58,12 @@ body
                       i.fa.fa-star
                       i.fa.fa-star
                       i.fas.fa-star-half-alt
-                    .col-6 
-                    p=course.courselevel
-                    p=course.input
-                    p=course.output
-                    p=course.formulation
-                    p=course.fee
-                    p=course.totaltime
+                    p Mức độ #{course.courselevel}
+                    p Đầu vào: #{course.input}
+                    p Đầu ra: #{course.output}
+                    p Hình thức: #{course.formulation}
+                    p Học phí: #{course.fee}
+                    p Số giờ học: #{course.totaltime} 
                     // Modal
                     button.btn.btn-primary(type='button' data-toggle='modal' data-target='.classModal') Chi tiết
                   .modal.fade.classModal(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
@@ -90,10 +85,14 @@ body
                                 td=faculty.endday
                                 td=faculty.schedule
                                 td=faculty.branch
-                                  
+                            
                         .modal-footer
-                          button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng 
-                          button.btn.btn-primary(type='button') Đăng ký          
+                          button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
+                          button.btn.btn-primary(type='button') Đăng ký
+
+                        
+                      
+                          
 
             <div class="testimoinial">
             <div class="small-container">
@@ -141,35 +140,34 @@ body
             </div>
             </div>
             <!--footer-->
-          footer.mt-5.py-5
-            .row.container.mx-auto.pt-5
+          .row.container.mx-auto.pt-5(style={'background-color': 'black', 'color': 'white', 'margin':'0px'})
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Liên kết
+                h5(style={'color': 'white'}) Liên kết
                 ul
                   li
-                    a(href='#') Thi IELTS tại BC
+                    a(href='#' style={'color': 'white'}) Thi IELTS tại BC
                   li
-                    a(href='#') Chính sách bảo mật
+                    a(href='#' style={'color': 'white'}) Chính sách bảo mật
                   li
-                    a(href='#') Điều khoản sử dụng
+                    a(href='#' style={'color': 'white'}) Điều khoản sử dụng
                   li
-                    a(href='#') Chính sách liên kết
+                    a(href='#' style={'color': 'white'}) Chính sách liên kết
                   li
-                    a(href='#') Quy chế 
+                    a(href='#' style={'color': 'white'}) Quy chế 
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Hệ thống trung tâm
+                h5(style={'color': 'white'}) Hệ thống trung tâm
                 ul
                   li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
                   li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
                   li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Hệ thống tư vấn
+                h5(style={'color': 'white'}) Hệ thống tư vấn
                 ul
                   li Tư vấn chương trình học: 1900000000
                   li Tư vấn thi thử: 19000000000
                   li Đăng ký thi BC: 1900000000
               .footer-one.col-lg-3.col-md-6.col-12
-                h5 Thông tin
+                h5(style={'color': 'white'}) Thông tin
                 p Công ty cổ phần Edu
                 p Giấy chứng nhận số:
                 p Ngày cấp phép:

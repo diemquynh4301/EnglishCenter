@@ -14,7 +14,9 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
-
+p {
+  font-size: 1rem;
+}
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -88,6 +90,9 @@ h6 {
   color: coral;
 }
 
+.container {
+  margin-top: 100px;
+}
 .small-container {
   max-width: 2000px;
   margin: auto;
@@ -95,6 +100,12 @@ h6 {
   padding-right: 25px;
 }
 .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.row1 {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -139,6 +150,7 @@ h2 {
 
 .col-4 p {
   font-size: 14px;
+  margin: 0px 0px;
 }
 
 .rating .fa {
