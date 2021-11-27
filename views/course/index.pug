@@ -65,7 +65,7 @@ body
                     p Học phí: #{course.fee} VND
                     p Số giờ học: #{course.totaltime} giờ 
                     // Modal
-                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='.classModal') Chi tiết
+                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='.classModal' ) Chi tiết
                   .modal.fade.classModal(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
                     .modal-dialog.modal-lg
                       .modal-content
@@ -78,17 +78,17 @@ body
                               th Lịch học
                               th Chi nhánh
                           tbody
-                            each faculty in classList
-                              tr 
-                                td=faculty.ID
-                                td=faculty.startday
-                                td=faculty.endday
-                                td=faculty.schedule
-                                td=faculty.branch
+                              each faculty in classList
+                                  tr 
+                                    td=faculty.ID
+                                    td=faculty.startday
+                                    td=faculty.endday
+                                    td=faculty.schedule
+                                    td=faculty.branch
                             
                         .modal-footer
                           button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                          button.btn.btn-primary(type='button') Đăng ký
+                          button.btn.btn-primary(type='button' onclick="window.location.href='/registration';") Đăng ký
 
                         
                       
