@@ -12,7 +12,7 @@ html(lang='vn')
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
-    link(rel='stylesheet' href='../../dist/css/style.css')
+    link(rel='stylesheet' href='../../dist/css/class.css')
   body
     // NAVBAR
     nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
@@ -38,10 +38,10 @@ html(lang='vn')
           li.nav-item
             a.nav-link(href='#') Liên hệ
     .small-container.course-detail
-      .row
-        .col-2
+      .row1
+        .colu
           img(src="../dist/img/ielts-4.5.1.png")
-        .col-2
+        .colu
           p Khóa học / #{classTaken.coursename}
           h1 [Khóa học] #{classTaken.coursename}
           h4 #{classTaken.branchAddress}
@@ -78,7 +78,7 @@ html(lang='vn')
                   button.btn.btn-primary(type='submit') Xác nhận
             
           <!--footer-->
-    .row.container.mx-auto.pt-5(style={'background-color': 'black', 'color': 'white', 'margin':'0px'})
+    .row(style={'background-color': 'black', 'color': 'white', 'padding':'40px 40px'})
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Liên kết
           ul
@@ -95,8 +95,9 @@ html(lang='vn')
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống trung tâm
         ul
-          li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
-          li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
+          li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
+          li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
+          li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống tư vấn
         ul
