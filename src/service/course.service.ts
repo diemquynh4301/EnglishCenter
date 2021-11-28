@@ -29,4 +29,9 @@ export class CourseService{
       });
     }
 
+    async getClass(coursename: string): Promise<Class[]> {
+      console.log(coursename);
+      return await this.classRepository.query("SELECT * FROM class WHERE coursename = '"+coursename+"';");
+    }
+
 }

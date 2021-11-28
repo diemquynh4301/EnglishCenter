@@ -12,7 +12,7 @@ html(lang='vn')
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
-    link(rel='stylesheet' href='../../dist/css/class.css')
+    link(rel='stylesheet' href='../../dist/css/style.css')
   body
     // NAVBAR
     nav.navbar.navbar-expand-lg.navbar-light.bg-light.head
@@ -23,6 +23,8 @@ html(lang='vn')
             a.nav-link(href='/home') Trang chủ
           li.nav-item
             a.nav-link(href='/course') Khóa học
+          li.nav-item
+            a.nav-link(href='#') Tài khoản
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
               | Tài khoản
@@ -39,91 +41,44 @@ html(lang='vn')
       .row
         .col-2
           img(src="../dist/img/ielts-4.5.1.png")
-        .col-5
-          p Khóa học / #{courseTaken.coursename}
-          h1 [Khóa học] #{courseTaken.coursename}
-          h4 #{courseTaken.fee} VNĐ
+        .col-2
+          p THÔNG TIN TÀI KHOẢN / #{classTaken.coursename}
+          h1 [Khóa học] #{classTaken.coursename}
+          h4 #{classTaken.branchAddress}
           p
-            b Đầu vào: 
-            | #{courseTaken.input}
+            b Mã lớp: 
+            | #{classTaken.ID}
           p
-            b Đầu ra: 
-            | #{courseTaken.output}
+            b Ngày khai giảng: 
+            | #{moment(classTaken.startday).format('DD/MM/YYYY')}
           p
-            b Hình thức: 
-            | #{courseTaken.formulation}
+            b Ngày kết thúc: 
+            | #{moment(classTaken.endday).format('DD/MM/YYYY')}
           p
             b Thời lượng: 
             | #{courseTaken.totaltime} giờ
+          p
+            b Ca học: 
+            |  #{classTaken.schedule}
 
-          //- button.btn.btn-primary(type='button', data-toggle='modal' data-target='.classModal') Chi tiết
-
-        //- .modal.fade.classModal(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
-        //-     .modal-dialog.modal-lg
-        //-       .modal-content
-        h2.text-center DANH SÁCH LỚP HỌC
-        table#tab-faculty.table.table-bordered.table-striped
-          thead
-            tr
-              th Mã số lớp
-              th Ngày bắt đầu
-              th Ngày kết thúc
-              th Lịch học
-              th Chi nhánh
-              th
-          tbody
-            each faculty in classList
-              tr 
-                td=faculty.ID
-                td=moment(faculty.startday).format('DD/MM/YYYY')
-                td=moment(faculty.endday).format('DD/MM/YYYY')
-                td=faculty.schedule
-                td=faculty.branchAddress
-                //- td.text-center
-                //-   a.btn.btn-primary(type='button' data-toggle='modal' data-target='#inforModal', data-schedule=faculty.schedule) Chi tiết  
-                td.text-center
-                  a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký 
-
-          //- #inforModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
-          //-   .modal-dialog.modal-lg
-          //-     .modal-content
-          //-       .modal-header
-          //-         h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
-          //-         button.close(type='button' data-dismiss='modal' aria-label='Close')
-          //-           span(aria-hidden='true') &times;
-          //-       form
-          //-         .modal-body
-          //-           h1 [Khóa học] #{courseTaken.coursename}
-          //-           h4 #{courseTaken.fee} VNĐ
-          //-           p
-          //-             b Đầu vào: 
-          //-             | #{courseTaken.input}
-          //-           p
-          //-             b Đầu ra: 
-          //-             | #{courseTaken.output}
-          //-           p
-          //-             b Lịch học: 
-          //-             | '"+schedule+"'
-          //-         .modal-footer
-          //-           button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng          
-          
-          
-          #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
-            .modal-dialog.modal-lg
-              .modal-content
-                .modal-header
-                  h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
-                  button.close(type='button' data-dismiss='modal' aria-label='Close')
-                    span(aria-hidden='true') &times;
-                form(action="/registration/add", method="post")
-                  .modal-body
-                    p.text-center BẠN SẼ ĐĂNG KÝ KHÓA HỌC NÀY?
-                  .modal-footer
-                    button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                    button.btn.btn-primary(type='submit') Xác nhận
-      
+          button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký
+        #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+        
+          .modal-dialog.modal-lg
+            .modal-content
+              .modal-header
+                h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                  span(aria-hidden='true') &times;
+              form
+                .modal-body(action="/registration/add", method="post")
+                  p.text-center BẠN SẼ ĐĂNG KÝ KHÓA HỌC NÀY?
+                .modal-footer
+                  button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
+                  button.btn.btn-primary(type='submit') Xác nhận
+            
           <!--footer-->
-    .row(style={'background-color': 'black', 'color': 'white', 'padding':'40px 40px'})
+    .row.container.mx-auto.pt-5(style={'background-color': 'black', 'color': 'white', 'margin':'0px'})
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Liên kết
           ul
@@ -140,9 +95,8 @@ html(lang='vn')
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống trung tâm
         ul
-          li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
-          li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
-          li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
+          li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
+          li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống tư vấn
         ul
@@ -163,3 +117,5 @@ html(lang='vn')
   script(src='/plugins/jquery/jquery.min.js')
   // Bootstrap 4
   script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+
+

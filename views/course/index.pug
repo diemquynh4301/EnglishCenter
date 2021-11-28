@@ -4,7 +4,7 @@ html(lang='vn')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Document
+    title Khóa học
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
     link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet')
@@ -34,7 +34,7 @@ body
               li
                 a.dropdown-item(href='#') Thông tin cá nhân
               li
-                a.dropdown-item(href='/logout') Đăng xuất
+                a.dropdown-item(href='/login/logout') Đăng xuất
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
@@ -62,38 +62,8 @@ body
                     p Hình thức: #{course.formulation}
                     p Học phí: #{course.fee} VND
                     p Số giờ học: #{course.totaltime} giờ 
-                    // Modal
-                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='.classModal' ) Chi tiết
-                  .modal.fade.classModal(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
-                    .modal-dialog.modal-lg
-                      .modal-content
-                        table#tab-faculty.table.table-bordered.table-striped
-                          thead
-                            tr
-                              th Mã số lớp
-                              th Ngày bắt đầu
-                              th Ngày kết thúc
-                              th Lịch học
-                              th Chi nhánh
-                              th
-                          tbody
-                            each faculty in classList
-                              tr 
-                                td=faculty.ID
-                                td=moment(faculty.startday).format('DD/MM/YYYY')
-                                td=moment(faculty.endday).format('DD/MM/YYYY')
-                                td=faculty.schedule
-                                td=faculty.branch.address
-                                td.text-center
-                                  a.btn.btn-primary(style="margin-right: 5px;", href='/registration/'+ faculty.ID) Chi tiết
-                                  
-                                  
-                        .modal-footer
-                          button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                                            
-                      
-                          
-
+                    a.button.btn.btn-primary(href='/registration/'+ course.coursename) Chi tiết
+                  
             <div class="testimoinial">
             <div class="small-container">
             <div class="row">

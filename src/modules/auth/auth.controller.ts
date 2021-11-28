@@ -1,4 +1,4 @@
-import { Controller, Get, Render, UseGuards, Post, Req, Res, Body} from "@nestjs/common";
+import { Controller, Get, Render, UseGuards, Post, Req, Res, Body, Param} from "@nestjs/common";
 import { Request, Response } from 'express';
 import { AuthGuard } from "@nestjs/passport";
 import { UserService } from "src/service/user.service";
@@ -24,7 +24,15 @@ export class AuthController {
 
     @Post('/add')
     async add(@Body() user: User, @Body() registant: Registant, @Res() res: Response) {
-        await this.userService.add(user);
+        var userAdd: User = new User();
+        userAdd.username = user.username;
+        userAdd.phone = user.phone;
+        userAdd.email = user.email;
+        userAdd.fullname = user.fullname;
+        userAdd.gender = (user.gender === false);
+        userAdd.pass = user.pass;
+
+        await this.userService.add(userAdd);
         await this.userService.addRegistant(registant);
         return res.redirect('/course');   
     }    
@@ -33,6 +41,22 @@ export class AuthController {
     @Render("login/add")
     async register() {
         return; 
+    }
+
+    @Get(':id')
+    @Render('login/user')
+    async index(@Param() params) {
+        var userTaken = await this.userService.getOne(params.id);
+        console.log(userTaken);
+        return {
+            userTaken
+        }
+    }
+
+    @Post('logout')
+    async logout(@Req() req: Request, @Res() res: Response) {
+        res.clearCookie('BKM');
+        return res.redirect('/login');
     }
 
     @Post("/checkId")
@@ -45,12 +69,6 @@ export class AuthController {
         return {
             user: "FOUND"
         }
-    }
-
-    @Get('logout')
-    async logout(@Req() req: Request, @Res() res: Response) {
-        res.clearCookie('BKM');
-        return res.redirect('/login');
     }
     
 }
