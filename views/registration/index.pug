@@ -61,28 +61,29 @@ html(lang='vn')
         //- .modal.fade.classModal(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
         //-     .modal-dialog.modal-lg
         //-       .modal-content
-        h2.text-center DANH SÁCH LỚP HỌC
-        table#tab-faculty.table.table-bordered.table-striped
-          thead
-            tr
-              th Mã số lớp
-              th Ngày bắt đầu
-              th Ngày kết thúc
-              th Lịch học
-              th Chi nhánh
-              th
-          tbody
-            each faculty in classList
-              tr 
-                td=faculty.ID
-                td=moment(faculty.startday).format('DD/MM/YYYY')
-                td=moment(faculty.endday).format('DD/MM/YYYY')
-                td=faculty.schedule
-                td=faculty.branchAddress
-                //- td.text-center
-                //-   a.btn.btn-primary(type='button' data-toggle='modal' data-target='#inforModal', data-schedule=faculty.schedule) Chi tiết  
-                td.text-center
-                  a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký 
+        .tablecourse
+          h2.text-center DANH SÁCH LỚP HỌC
+          table#tab-faculty.table.table-bordered.table-striped
+            thead
+              tr
+                th Mã số lớp
+                th Ngày bắt đầu
+                th Ngày kết thúc
+                th Lịch học
+                th Chi nhánh
+                th
+            tbody
+              each faculty in classList
+                tr 
+                  td=faculty.ID
+                  td=moment(faculty.startday).format('DD/MM/YYYY')
+                  td=moment(faculty.endday).format('DD/MM/YYYY')
+                  td=faculty.schedule
+                  td=faculty.branchAddress
+                  //- td.text-center
+                  //-   a.btn.btn-primary(type='button' data-toggle='modal' data-target='#inforModal', data-schedule=faculty.schedule) Chi tiết  
+                  td.text-center
+                    a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal' style={'color':'white'}) Đăng ký 
 
           //- #inforModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
           //-   .modal-dialog.modal-lg
