@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Class } from "src/models/class.entity";
 import { Course } from "src/models/course.entity";
+import { RegistantOfClass } from "src/models/registantOfClass.entity";
 import { Repository } from "typeorm";
 
 @Injectable()
@@ -9,6 +10,7 @@ export class CourseService{
     constructor(
         @InjectRepository(Course) private courseRepository: Repository<Course>,
         @InjectRepository(Class) private classRepository: Repository<Class>,
+        @InjectRepository(RegistantOfClass) private rocRepository: Repository<RegistantOfClass>,
       ) {}
 
     async getAllCourse(): Promise<Course[]> {
@@ -30,8 +32,12 @@ export class CourseService{
     }
 
     async getClass(coursename: string): Promise<Class[]> {
-      console.log(coursename);
       return await this.classRepository.query("SELECT * FROM class WHERE coursename = '"+coursename+"';");
     }
+
+    async addClass(roc: RegistantOfClass): Promise<void>{
+      await this.rocRepository.insert(roc);
+    }
+
 
 }

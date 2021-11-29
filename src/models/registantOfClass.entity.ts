@@ -8,7 +8,7 @@ export class RegistantOfClass {
     registantID: number;
 
     @PrimaryColumn()
-    classID: number;
+    classID: string;
 
     @Column()
     feeSituation: string;

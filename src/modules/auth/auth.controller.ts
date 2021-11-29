@@ -1,4 +1,4 @@
-import { Controller, Get, Render, UseGuards, Post, Req, Res, Body, Param} from "@nestjs/common";
+import { Controller, Get, Render, UseGuards, Post, Req, Res, Body, Param, HttpCode} from "@nestjs/common";
 import { Request, Response } from 'express';
 import { AuthGuard } from "@nestjs/passport";
 import { UserService } from "src/service/user.service";
@@ -11,7 +11,8 @@ export class AuthController {
     constructor(private userService: UserService,private jwtService: JwtService) {}
     @Get()
     @Render('login/index')
-    async loginPage(@Req() req: Request) {}
+    async loginPage(@Req() req: Request) {
+    }
 
     @Post()
     @UseGuards(AuthGuard('local'))
@@ -21,7 +22,7 @@ export class AuthController {
         res.cookie('BKM', accessToken);
         return res.redirect('/course');
     }
-
+    
     @Post('/add')
     async add(@Body() user: User, @Body() registant: Registant, @Res() res: Response) {
         var userAdd: User = new User();
@@ -32,8 +33,12 @@ export class AuthController {
         userAdd.gender = (user.gender === false);
         userAdd.pass = user.pass;
 
+        var register: Registant = new Registant();
+        register.username = user.username;
+        register.confirmSituation = "Chưa xác nhận";
+
         await this.userService.add(userAdd);
-        await this.userService.addRegistant(registant);
+        await this.userService.addRegistant(register);
         return res.redirect('/course');   
     }    
 
@@ -43,14 +48,14 @@ export class AuthController {
         return; 
     }
 
-    @Get(':id')
+    @Get('user')    
+    @UseGuards(AuthGuard('jwt'))
     @Render('login/user')
-    async index(@Param() params) {
-        var userTaken = await this.userService.getOne(params.id);
-        console.log(userTaken);
-        return {
-            userTaken
-        }
+    async index( @Req() req: Request) {
+        const userTaken = req["user"];
+        var a = await this.userService.getUser(userTaken.username);
+        var user = a[0];
+        return {user};
     }
 
     @Post('logout')

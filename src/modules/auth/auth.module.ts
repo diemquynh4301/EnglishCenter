@@ -9,6 +9,7 @@ import { AuthController } from './auth.controller';
 import { LocalStrategy } from './local.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
+import { RegistantOfClass } from 'src/models/registantOfClass.entity';
 
 @Module({
     imports: [
@@ -20,7 +21,7 @@ import { JwtStrategy } from './jwt.strategy';
             expiresIn: 60 * 30,
           },
         }),
-        TypeOrmModule.forFeature([User, Registant]),
+        TypeOrmModule.forFeature([User, Registant, RegistantOfClass]),
     ],
     providers: [UserService, LocalStrategy, JwtStrategy],
     controllers: [AuthController]

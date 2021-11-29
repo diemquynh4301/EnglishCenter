@@ -30,55 +30,74 @@ html(lang='vn')
               | Tài khoản
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
               li
-                a.dropdown-item(href='#') Thông tin cá nhân
+                a.dropdown-item(href='/login/user') Thông tin cá nhân
+              li
+                a.dropdown-item(href='/login') Đăng nhập
               li
                 a.dropdown-item(href='/logout') Đăng xuất
           li.nav-item
             a.nav-link(href='#') Hỗ trợ
           li.nav-item
             a.nav-link(href='#') Liên hệ
-    .small-container.course-detail
+    .container.course-detail
       .row
         .col-2
-          img(src="../dist/img/ielts-4.5.1.png")
-        .col-2
-          p THÔNG TIN TÀI KHOẢN / #{classTaken.coursename}
-          h1 [Khóa học] #{classTaken.coursename}
-          h4 #{classTaken.branchAddress}
+        .col-8
+          p THÔNG TIN TÀI KHOẢN / #{user.fullname}
+          h1 [NGƯỜI DÙNG] #{user.fullname}
           p
-            b Mã lớp: 
-            | #{classTaken.ID}
+            b Tên đăng nhập: 
+            | #{user.username}
           p
-            b Ngày khai giảng: 
-            | #{moment(classTaken.startday).format('DD/MM/YYYY')}
+            b Giới tính: 
+            | #{user.gender}
           p
-            b Ngày kết thúc: 
-            | #{moment(classTaken.endday).format('DD/MM/YYYY')}
+            b Email: 
+            | #{user.email}
           p
-            b Thời lượng: 
-            | #{courseTaken.totaltime} giờ
-          p
-            b Ca học: 
-            |  #{classTaken.schedule}
+            b Số điện thoại: 
+            | #{user.phone} 
 
-          button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký
-        #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
-        
-          .modal-dialog.modal-lg
-            .modal-content
-              .modal-header
-                h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
-                button.close(type='button' data-dismiss='modal' aria-label='Close')
-                  span(aria-hidden='true') &times;
-              form
-                .modal-body(action="/registration/add", method="post")
-                  p.text-center BẠN SẼ ĐĂNG KÝ KHÓA HỌC NÀY?
-                .modal-footer
-                  button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                  button.btn.btn-primary(type='submit') Xác nhận
+          button.btn.btn-edit.btn-primary(data-id=user.username, data-name=user.fullname, data-email=user.email, data-phone=user.phone) Chỉnh sửa thông tin        
+          #inforModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='editFacultyModal' aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5.modal-title Chỉnh sửa
+                  button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+                form(action="/users/edit", method="post")
+                  .modal-body
+                    input(type="hidden", name="id")
+                    .form-group
+                      label Họ và tên
+                      input.form-control(type='text', placeholder='Họ và tên', name="name")
+                    .col-md-6 
+                      .form-group 
+                        .row
+                          .col-md-6
+                            label Giới tính:
+                          .col-md-4
+                            .form-check 
+                              input.form-check-input(type="radio", name="gender", value='1', checked=(user.gender == 1))
+                              label Nam
+                          .col-md-2
+                            .form-check 
+                              input.form-check-input(type="radio", name="gender", value='0', checked=(user.gender == 0))
+                              label Nữ
+                    .form-group
+                      label Email
+                      input.form-control(type='text', placeholder='Email', name='email')
+                    .form-group
+                      label Số điện thoại
+                      input.form-control(type='text', placeholder='Số điện thoại', name='phone')
+                  .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+                    button.btn.btn-primary(type='submit') Cập nhật
             
-          <!--footer-->
-    .row.container.mx-auto.pt-5(style={'background-color': 'black', 'color': 'white', 'margin':'0px'})
+    .container
+    <!--footer-->
+    .row(style={'background-color': 'black', 'color': 'white', 'padding':'40px 40px'})
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Liên kết
           ul
@@ -95,8 +114,9 @@ html(lang='vn')
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống trung tâm
         ul
-          li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
-          li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
+          li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
+          li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
+          li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
       .footer-one.col-lg-3.col-md-6.col-12
         h5(style={'color': 'white'}) Hệ thống tư vấn
         ul
@@ -117,5 +137,6 @@ html(lang='vn')
   script(src='/plugins/jquery/jquery.min.js')
   // Bootstrap 4
   script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+  script(src="/js/user.js") 
 
 

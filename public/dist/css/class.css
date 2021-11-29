@@ -215,3 +215,21 @@ a {
   text-decoration: none;
   color: #555;
 }
+
+.tablecourse {
+  margin-top: 70px;
+}
+
+.tablecourse h2 {
+  font-weight: 700;
+}
+
+.table {
+  justify-content: center;
+}
+
+.table-bordered th,
+.table-bordered td,
+.table-bordered {
+  border: 2px solid black;
+}

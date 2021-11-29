@@ -11,7 +11,7 @@ export class HomeController {
     async index(@Param() params) {
         const courseList = await this.courseService.getAllCourse();
         const classList = await this.courseService.getAllClass();
-        var user = await this.userService.getOne(params.id);
+        var user = await this.userService.getByUsername(params.id);
         // console.log(user);
         return {
             courseList: courseList,

@@ -28,7 +28,9 @@ html(lang='vn')
               | Tài khoản
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
               li
-                a.dropdown-item(href='#') Thông tin cá nhân
+                a.dropdown-item(href='/login/user') Thông tin cá nhân
+              li
+                a.dropdown-item(href='/login') Đăng nhập
               li
                 a.dropdown-item(href='/logout') Đăng xuất
           li.nav-item
@@ -61,66 +63,45 @@ html(lang='vn')
         //- .modal.fade.classModal(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
         //-     .modal-dialog.modal-lg
         //-       .modal-content
-        h2.text-center DANH SÁCH LỚP HỌC
-        table#tab-faculty.table.table-bordered.table-striped
-          thead
-            tr
-              th Mã số lớp
-              th Ngày bắt đầu
-              th Ngày kết thúc
-              th Lịch học
-              th Chi nhánh
-              th
-          tbody
-            each faculty in classList
-              tr 
-                td=faculty.ID
-                td=moment(faculty.startday).format('DD/MM/YYYY')
-                td=moment(faculty.endday).format('DD/MM/YYYY')
-                td=faculty.schedule
-                td=faculty.branchAddress
-                //- td.text-center
-                //-   a.btn.btn-primary(type='button' data-toggle='modal' data-target='#inforModal', data-schedule=faculty.schedule) Chi tiết  
-                td.text-center
-                  a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký 
+        .tablecourse
+          h2.text-center DANH SÁCH LỚP HỌC
+          table#tab-faculty.table.table-bordered.table-striped
+            thead
+              tr
+                th Mã số lớp
+                th Ngày bắt đầu
+                th Ngày kết thúc
+                th Lịch học
+                th Chi nhánh
+                th
+            tbody
+              each faculty in classList
+                tr 
+                  td=faculty.ID
+                  td=moment(faculty.startday).format('DD/MM/YYYY')
+                  td=moment(faculty.endday).format('DD/MM/YYYY')
+                  td=faculty.schedule
+                  td=faculty.branchAddress
+                  //- td.text-center
+                  //-   a.btn.btn-primary(type='button' data-toggle='modal' data-target='#inforModal', data-schedule=faculty.schedule) Chi tiết  
+                  td.text-center
+                    //- a.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Đăng ký 
+                    btn.btn-confirm.btn.btn-success(data-id=faculty.ID) Đăng ký 
 
-          //- #inforModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
-          //-   .modal-dialog.modal-lg
-          //-     .modal-content
-          //-       .modal-header
-          //-         h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
-          //-         button.close(type='button' data-dismiss='modal' aria-label='Close')
-          //-           span(aria-hidden='true') &times;
-          //-       form
-          //-         .modal-body
-          //-           h1 [Khóa học] #{courseTaken.coursename}
-          //-           h4 #{courseTaken.fee} VNĐ
-          //-           p
-          //-             b Đầu vào: 
-          //-             | #{courseTaken.input}
-          //-           p
-          //-             b Đầu ra: 
-          //-             | #{courseTaken.output}
-          //-           p
-          //-             b Lịch học: 
-          //-             | '"+schedule+"'
-          //-         .modal-footer
-          //-           button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng          
-          
-          
-          #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
-            .modal-dialog.modal-lg
-              .modal-content
-                .modal-header
-                  h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
-                  button.close(type='button' data-dismiss='modal' aria-label='Close')
-                    span(aria-hidden='true') &times;
-                form(action="/registration/add", method="post")
-                  .modal-body
-                    p.text-center BẠN SẼ ĐĂNG KÝ KHÓA HỌC NÀY?
-                  .modal-footer
-                    button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng
-                    button.btn.btn-primary(type='submit') Xác nhận
+            #confirmModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='confirmModalLabel' aria-hidden='true')
+              .modal-dialog(role='document')
+                .modal-content.bg-success
+                  .modal-header
+                    h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                      span(aria-hidden='true') &times;
+                  form(action="/registration/add", method="post")
+                    .modal-body
+                      input(type="hidden", name="ID")
+                      p BẠN SẼ ĐĂNG KÝ KHÓA HỌC NÀY?
+                    .modal-footer
+                      button.btn.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
+                      button.btn.btn-outline-light(type='submit') Xác nhận
       
           <!--footer-->
     .row(style={'background-color': 'black', 'color': 'white', 'padding':'40px 40px'})
@@ -163,3 +144,29 @@ html(lang='vn')
   script(src='/plugins/jquery/jquery.min.js')
   // Bootstrap 4
   script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+  script(src="/js/registration.js") 
+
+  
+          //- #inforModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+          //-   .modal-dialog.modal-lg
+          //-     .modal-content
+          //-       .modal-header
+          //-         h5.modal-title GỬI ĐĂNG KÝ LỚP HỌC
+          //-         button.close(type='button' data-dismiss='modal' aria-label='Close')
+          //-           span(aria-hidden='true') &times;
+          //-       form
+          //-         .modal-body
+          //-           h1 [Khóa học] #{courseTaken.coursename}
+          //-           h4 #{courseTaken.fee} VNĐ
+          //-           p
+          //-             b Đầu vào: 
+          //-             | #{courseTaken.input}
+          //-           p
+          //-             b Đầu ra: 
+          //-             | #{courseTaken.output}
+          //-           p
+          //-             b Lịch học: 
+          //-             | '"+schedule+"'
+          //-         .modal-footer
+          //-           button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng          
+          

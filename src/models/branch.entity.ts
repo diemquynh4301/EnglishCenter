@@ -6,7 +6,7 @@ export class Branch {
     address: string;
 
     @Column()
-    name: number;
+    name: string;
 
     @Column()
     initialDay: Date;
