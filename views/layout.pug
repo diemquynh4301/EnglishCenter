@@ -14,6 +14,7 @@ html(lang='en')
 		link(rel='stylesheet' href='/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')
 		// Theme style
 		link(rel='stylesheet' href='/dist/css/adminlte.css')
+		link(rel='stylesheet' href='../../dist/css/manage.css')
 		block style
 	body.hold-transition.sidebar-mini
 		.wrapper
@@ -54,6 +55,16 @@ html(lang='en')
 										a.nav-link(href='#')
 											i.far.fa-circle.nav-icon
 											p Lớp học
+							li.nav-item
+								a.nav-link(href='/home')
+									i.nav-icon.fa.fa-home
+									p
+										| Trang chủ
+							li.nav-item
+								a.nav-link(href='/login/logout')
+									i.nav-icon.fas.fa-sign-out-alt
+									p
+										| Đăng xuất
 					// /.sidebar-menu
 				// /.sidebar
 			// Content Wrapper. Contains page content
