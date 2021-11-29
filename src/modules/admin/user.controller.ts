@@ -30,7 +30,7 @@ export class UserController{
     }
     @Post('/edit')
         async edit(@Res() res: Response, @Body() user: User) {
-        console.log(user);
+        // console.log(user);
         await this.userService.edit(user);
         res.redirect('/login/user');
     }

@@ -55,7 +55,9 @@ export class AuthController {
         const userTaken = req["user"];
         var a = await this.userService.getUser(userTaken.username);
         var user = a[0];
-        return {user};
+        var roc = await this.userService.getClass(user.username);
+        console.log(roc);
+        return {user, roc};
     }
 
     @Post('logout')
