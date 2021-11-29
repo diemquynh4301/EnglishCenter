@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToOne, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 import { Class } from "./class.entity";
 import { Registant } from "./registant.entity";
 
@@ -16,13 +16,13 @@ export class RegistantOfClass {
     @CreateDateColumn()
     createdAt: Date;
 
-    @OneToOne(() => Registant, { cascade: true })
-    @JoinColumn({ name: 'registantID' })
+    @ManyToOne((type) => Registant, { primary: true, cascade: true })
+    @JoinColumn()
     registant: Registant;
 
 
-    @OneToOne(() => Class, { primary: true, cascade: true })
-    @JoinColumn({ name: 'classID' })
+    @ManyToOne((type) => Class, { primary: true, cascade: true })
+    @JoinColumn()
     class: Class;
 
 

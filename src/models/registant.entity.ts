@@ -9,10 +9,11 @@ export class Registant {
     username: string;
 
     @Column()
-    cmndorvisaofEmployee: string;
+    cmndorvisa: string;
 
     @Column()
     confirmSituation: string;
+    
 
     @UpdateDateColumn()
     updatedAt: Date;

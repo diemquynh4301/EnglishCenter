@@ -47,8 +47,10 @@ html(lang='vn')
             b Tên đăng nhập: 
             | #{user.username}
           p
-            b Giới tính: 
-            | #{(user.gender)}
+            if user.gender
+              b Giới tính: Nam
+            else
+              b Giới tính: Nữ
           p
             b Email: 
             | #{user.email}

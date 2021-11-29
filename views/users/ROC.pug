@@ -1,0 +1,68 @@
+//- extends ../layout 
+
+//- block content 
+//- 	section.content-header
+//- 		.container-fluid
+//- 			.row.mb-2
+//- 				.col-sm-6
+//- 					h1 QUẢN LÝ NGƯỜI DÙNG
+//- 	section.content
+//- 		.container-fluid
+//- 			.row
+//- 				.col-12
+//- 					.card
+//- 						.card-body
+//- 							.row 
+//- 								.col-12 
+//- 									button.btn.btn-primary(type='button' data-toggle='modal' data-target='#addUserModal')
+//- 										| Thêm mới
+//- 									// Modal
+//- 									#addUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='addUserModal' aria-hidden='true')
+//- 										.modal-dialog(role='document')
+//- 											.modal-content
+//- 												.modal-header
+//- 													h5.modal-title Thêm mới
+//- 													button.close(type='button' data-dismiss='modal' aria-label='Close')
+//- 														span(aria-hidden='true') &times;
+//- 												form(action="/users/add", method="post")
+//- 													.modal-body
+//- 														.form-group
+//- 															label Email
+//- 															input.form-control(type='email' placeholder='Email' name='email')
+//- 														.form-group
+//- 															label Mật khẩu
+//- 															input.form-control(type='password' placeholder='Mật khẩu' name='password')
+//- 													.modal-footer
+//- 														button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+//- 														button.btn.btn-primary(type='submit') Thêm mới
+							
+//- 							.row
+//- 								.col-12
+//- 									table#tab-users.table.table-bordered.table-striped
+//- 										thead
+//- 											tr
+//- 												th STT
+//- 												th Tên
+//- 												th Tên đăng nhập
+//- 												th Email
+//- 												th Số điện thoại
+//- 												th Thời điểm đăng ký
+//- 												th Tình trạng
+//- 												th Thao tác
+//- 										tbody
+//- 											each user, index in userList 
+//- 												tr 
+//- 													td=index + 1
+//- 													td=user.fullname
+//- 													td=user.username
+//- 													td=user.email
+//- 													td=user.phone
+//- 													td=moment(user.createdAt).format('DD/MM/YYYY')
+//- 													td=user.confirmSituation
+//- 													td.text-center
+//- 														btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px;") 
+//- 															i.fas.fa-edit
+//- 														btn.btn-delete.btn.btn-danger.btn-xs()
+//- 															i.fas.fa-trash 
+//- //- block script 
+//- 	script(src="/js/users/index.js") 

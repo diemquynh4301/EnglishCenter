@@ -42,19 +42,40 @@ block content
 										thead
 											tr
 												th STT
+												th Tên
+												th Tên đăng nhập
 												th Email
-												th Cập nhật lần cuối
+												th Số điện thoại
+												th Thời điểm đăng ký
+												th Tình trạng
 												th Thao tác
 										tbody
 											each user, index in userList 
 												tr 
 													td=index + 1
+													td=user.fullname
+													td=user.username
 													td=user.email
-													td=moment(user.updatedAt).fromNow()
+													td=user.phone
+													td=moment(user.createdAt).format('DD/MM/YYYY')
+													td=user.confirmSituation
 													td.text-center
-														btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px;") 
-															i.fas.fa-edit
-														btn.btn-delete.btn.btn-danger.btn-xs()
-															i.fas.fa-trash 
+														btn.btn-check.btn.btn-primary.btn-xs(style="margin-right: 5px;" data-toggle='modal' data-target='#checkModal') 
+															i.fas.fa-check
+						#checkModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='chechModalLabel' aria-hidden='true')
+							.modal-dialog(role='document')
+								.modal-content
+									.modal-header.bg-success
+										h5.modal-title XÁC NHẬN
+										button.close(type='button' data-dismiss='modal' aria-label='Close')
+											span(aria-hidden='true') &times;
+									form(action="/users/check", method="post")
+										.modal-body
+											input(type="hidden", name="ID")
+											p BẠN ĐÃ LIÊN LẠC HỌC VIÊN?
+										.modal-footer
+											button.btn.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
+											button.btn.btn-outline-light(type='submit') Xác nhận
+							
 //- block script 
-	script(src="/js/users/index.js") 
+//- 	script(src="/js/check.js") 

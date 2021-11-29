@@ -12,6 +12,7 @@ export class UserController{
     @Render('users/index')
     async index() {
         const userList = await this.userService.getAll();
+        console.log(userList);
         return {
             userList: userList
         }
@@ -34,7 +35,10 @@ export class UserController{
         await this.userService.edit(user);
         res.redirect('/login/user');
     }
-
-
+    
+    @Post('/check')
+        async check(@Res() res: Response){
+            res.redirect('/users')
+        }
 
 }

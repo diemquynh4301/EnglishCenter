@@ -12,8 +12,8 @@ export class UserService {
         @InjectRepository(Registant) private registantRepository: Repository<Registant>,
         @InjectRepository(RegistantOfClass) private rocRepository: Repository<RegistantOfClass>
       ) {}
-      async getAll(): Promise<User[]> {
-        return await this.userRepository.find();
+      async getAll(): Promise<any> {
+        return await this.userRepository.query("SELECT * FROM registant R, user U WHERE R.username = U.username");
       }
     
       async add(user: User): Promise<void> {
