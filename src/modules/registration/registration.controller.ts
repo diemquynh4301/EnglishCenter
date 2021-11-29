@@ -45,8 +45,7 @@ export class RegistrationController{
         roc.feeSituation = "Chưa nộp học phí";
         roc.classID = faculty.ID;
         await this.courseService.addClass(roc);
-        console.log(user[0].ID);
-        res.redirect('/course'); 
+        res.redirect('/login/user'); 
         return{
             userReturn
         }   

@@ -39,16 +39,16 @@ html(lang='vn')
             a.nav-link(href='#') Liên hệ
     .container.course-detail
       .row
-        .col-2
-        .col-8
+        .col-1
+        .col-10
           p THÔNG TIN TÀI KHOẢN / #{user.fullname}
-          h1 [NGƯỜI DÙNG] #{user.fullname}
+          h1 #{user.fullname}
           p
             b Tên đăng nhập: 
             | #{user.username}
           p
             b Giới tính: 
-            | #{user.gender}
+            | #{(user.gender)}
           p
             b Email: 
             | #{user.email}
@@ -92,6 +92,30 @@ html(lang='vn')
                   .modal-footer
                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
                     button.btn.btn-primary(type='submit') Cập nhật
+          .tablecourse
+            h2.text-center LỚP HỌC ĐÃ ĐĂNG KÝ
+            table#tab-faculty.table.table-bordered.table-striped
+              thead
+                tr
+                  th Khóa học
+                  th Mã số lớp
+                  th Ngày bắt đầu
+                  th Ngày kết thúc
+                  th Lịch học
+                  th Chi nhánh
+                  th Thời điểm đăng ký
+              tbody
+                each r in roc
+                  tr 
+                    td=r.coursename
+                    td=r.classID
+                    td=moment(r.startday).format('DD/MM/YYYY')
+                    td=moment(r.endday).format('DD/MM/YYYY')
+                    td=r.schedule
+                    td=r.branchAddress
+                    td=moment(r.createdAt).format('DD/MM/YYYY')
+        .col-1            
+                    
             
     .container
     <!--footer-->

@@ -16,7 +16,7 @@ export class RegistantOfClass {
     @CreateDateColumn()
     createdAt: Date;
 
-    @OneToOne(() => Registant, { primary: true, cascade: true })
+    @OneToOne(() => Registant, { cascade: true })
     @JoinColumn({ name: 'registantID' })
     registant: Registant;
 
