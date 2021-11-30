@@ -27,7 +27,7 @@ html(lang='en')
 					li.nav-item
 						a.nav-link(href='/home') Trang chủ
 					li.nav-item
-						a.nav-link(href='/users/edit') Thông tin cá nhân
+						a.nav-link(href='/teacher/user') Thông tin cá nhân
 					li.nav-item
 						a.nav-link(href='/login/logout') Đăng xuất
 			// /.navbar
@@ -43,32 +43,65 @@ html(lang='en')
 						ul.nav.nav-pills.nav-sidebar.flex-column(data-widget='treeview' role='menu' data-accordion='false')
 							
 							li.nav-item
-								a.nav-link(href='#')
+								a.nav-link(href='/teacher')
 									i.nav-icon.far.fa-user
 									p
 										| Quản lý học viên
-								ul.nav.nav-treeview
-									li.nav-item
-										a.nav-link(href='/users')
-											i.far.fa-circle.nav-icon
-											p Danh sách đơn đăng ký
-									li.nav-item
-										a.nav-link(href='/users/student')
-											i.far.fa-circle.nav-icon
-											p Lớp học
-							li.nav-item
-								a.nav-link(href='/users/statistic')
-									i.nav-icon.fas.fa-school
-									p
-										| Thống kê
 						
 					
 					// /.sidebar-menu
 				// /.sidebar
 			// Content Wrapper. Contains page content
 			.content-wrapper
-				block content
-
+				block content 
+					section.content-header
+						.container-fluid
+							.row.mb-2
+								.col-sm-6
+									h1 QUẢN LÝ NGƯỜI DÙNG
+					section.content
+						.container-fluid
+							.row
+								.col-12
+									.card
+										.card-body
+											.row 
+												.col-12 
+																			
+											.row
+												.col-12
+													table#tab-faculty.table.table-bordered.table-striped
+														thead
+															tr
+																th.text-center STT
+																th.text-center Khóa Học
+																th.text-center Lớp
+																th.text-center Tên học viên
+																th.text-center Số điện thoại
+																th.text-center Email
+														tbody
+															each user, index in classs
+																tr 
+																	td.text-center=index + 1
+																	td.text-center=user.coursename
+																	td.text-center=user.classID
+																	td.text-center=user.fullname
+																	td.text-center=user.phone
+																	td.text-center=user.email													
+						#checkModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='chechModalLabel' aria-hidden='true')
+							.modal-dialog(role='document')
+								.modal-content
+									.modal-header.bg-success
+										h5.modal-title XÁC NHẬN
+										button.close(type='button' data-dismiss='modal' aria-label='Close')
+											span(aria-hidden='true') &times;
+									form(action="/users/check", method="post")
+										.modal-body
+											input(type="hidden", name="username")
+											p BẠN ĐÃ LIÊN LẠC HỌC VIÊN?
+										.modal-footer
+											button.btn.btn-outline-light(type='button' data-dismiss='modal' style={'background-color':'black'}) Đóng lại
+											button.btn.btn-outline-light(type='submit' style={'background-color':'black'}) Xác nhận
 			footer.main-footer
 				.float-right.d-none.d-sm-block
 					b Version
@@ -101,5 +134,8 @@ html(lang='en')
 		script(src='/plugins/datatables-buttons/js/buttons.colVis.min.js')
 		// AdminLTE App
 		script(src='/dist/js/adminlte.min.js')
-		block script
+		block script 
+		script(src="/js/check.js") 
+
+
 

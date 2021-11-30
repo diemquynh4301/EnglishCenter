@@ -1,3 +1,4 @@
+import { Employee } from './../../models/employee.entity';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
@@ -10,6 +11,8 @@ import { LocalStrategy } from './local.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { RegistantOfClass } from 'src/models/registantOfClass.entity';
+import { TeacherService } from 'src/service/teacher.service';
+import { Teacher } from 'src/models/teacher.entity';
 
 @Module({
     imports: [
@@ -21,9 +24,9 @@ import { RegistantOfClass } from 'src/models/registantOfClass.entity';
             expiresIn: 60 * 30,
           },
         }),
-        TypeOrmModule.forFeature([User, Registant, RegistantOfClass]),
+        TypeOrmModule.forFeature([User, Registant, RegistantOfClass, Employee, Teacher]),
     ],
-    providers: [UserService, LocalStrategy, JwtStrategy],
+    providers: [UserService, LocalStrategy, TeacherService, JwtStrategy],
     controllers: [AuthController]
 })
 export class AuthModule{}

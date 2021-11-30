@@ -8,6 +8,5 @@ $('.btn-edit').click(function (e) {
   $("#inforModal input[name='name']").val(name);
   $("#inforModal input[name='phone']").val(phone);
   $("#inforModal input[name='email']").val(email);
-
   $('#inforModal').modal('show');
 });

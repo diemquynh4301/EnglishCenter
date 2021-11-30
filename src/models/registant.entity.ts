@@ -1,4 +1,5 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import { Employee } from "./employee.entity";
 
 @Entity()
 export class Registant {
@@ -9,11 +10,14 @@ export class Registant {
     username: string;
 
     @Column()
-    cmndorvisa: string;
+    cmndorvisa: number;
 
     @Column()
     confirmSituation: string;
-    
+
+    @ManyToOne(() => Employee)
+    @JoinColumn({name:'cmndorvisa'})
+    employee: Employee;
 
     @UpdateDateColumn()
     updatedAt: Date;

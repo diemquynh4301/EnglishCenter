@@ -1,3 +1,4 @@
+import { UserRole } from "src/constant/user.constant";
 import { Column, Entity, PrimaryColumn} from "typeorm";
 
 @Entity()
@@ -19,6 +20,9 @@ export class User {
 
     @Column()
     gender: boolean;
+
+    @Column({ default: UserRole.REGISTANT })
+	role: number;
 }
 
 

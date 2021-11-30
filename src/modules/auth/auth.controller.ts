@@ -5,22 +5,39 @@ import { UserService } from "src/service/user.service";
 import { User } from "src/models/user.entity";
 import { Registant } from "src/models/registant.entity";
 import { JwtService } from '@nestjs/jwt';
+import { UserRole } from "src/constant/user.constant";
+import { TeacherService } from "src/service/teacher.service";
 
 @Controller('login')
 export class AuthController {
-    constructor(private userService: UserService,private jwtService: JwtService) {}
+    constructor(private userService: UserService, private teacherService: TeacherService, private jwtService: JwtService) {}
     @Get()
     @Render('login/index')
     async loginPage(@Req() req: Request) {
+        const message = req.query['message'];
+        return {message};
     }
 
     @Post()
     @UseGuards(AuthGuard('local'))
-    login(@Req() req: Request, @Res() res: Response) {
+    async login(@Req() req: Request, @Res() res: Response) {
         const user = req["user"];
         const accessToken = this.jwtService.sign(user);
         res.cookie('BKM', accessToken);
-        return res.redirect('/course');
+        // var role = 0;
+        let findUser = await this.userService.getEmployee(user.username);
+        let findTeacher = await this.teacherService.getTeacher(user.username);
+        if (findUser.length != 0) {
+            // await this.userService.updateRole(user.username, 1);            
+            res.redirect('/users');
+        }
+
+        else if (findTeacher.length != 0){
+            res.redirect('/teacher');
+        }
+        
+
+        else return res.redirect('/course');
     }
     
     @Post('/add')
@@ -31,11 +48,12 @@ export class AuthController {
         userAdd.email = user.email;
         userAdd.fullname = user.fullname;
         userAdd.gender = (user.gender === false);
-        userAdd.pass = user.pass;
+        userAdd.pass = "123456789";
 
         var register: Registant = new Registant();
         register.username = user.username;
         register.confirmSituation = "Chưa xác nhận";
+        register.cmndorvisa = 0;
 
         await this.userService.add(userAdd);
         await this.userService.addRegistant(register);
@@ -56,11 +74,11 @@ export class AuthController {
         var a = await this.userService.getUser(userTaken.username);
         var user = a[0];
         var roc = await this.userService.getClass(user.username);
-        console.log(roc);
+        // console.log(roc);
         return {user, roc};
     }
 
-    @Post('logout')
+    @Get('/logout')
     async logout(@Req() req: Request, @Res() res: Response) {
         res.clearCookie('BKM');
         return res.redirect('/login');

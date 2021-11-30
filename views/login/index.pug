@@ -22,6 +22,7 @@ html(lang='en')
 			.card
 				.card-body.login-card-body
 					p.login-box-msg Đăng nhập vào hệ thống
+					p.text-center(style={'color': 'red'})=message
 					form(action='/login', method='post')
 						.input-group.mb-3
 							input.form-control(type='username' placeholder='username' name='username')

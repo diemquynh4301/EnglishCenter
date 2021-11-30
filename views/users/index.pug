@@ -12,33 +12,9 @@ block content
 				.col-12
 					.card
 						.card-body
-							.row 
-								.col-12 
-									button.btn.btn-primary(type='button' data-toggle='modal' data-target='#addUserModal')
-										| Thêm mới
-									// Modal
-									#addUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='addUserModal' aria-hidden='true')
-										.modal-dialog(role='document')
-											.modal-content
-												.modal-header
-													h5.modal-title Thêm mới
-													button.close(type='button' data-dismiss='modal' aria-label='Close')
-														span(aria-hidden='true') &times;
-												form(action="/users/add", method="post")
-													.modal-body
-														.form-group
-															label Email
-															input.form-control(type='email' placeholder='Email' name='email')
-														.form-group
-															label Mật khẩu
-															input.form-control(type='password' placeholder='Mật khẩu' name='password')
-													.modal-footer
-														button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
-														button.btn.btn-primary(type='submit') Thêm mới
-							
 							.row
 								.col-12
-									table#tab-users.table.table-bordered.table-striped
+									table#tab-faculty.table.table-bordered.table-striped
 										thead
 											tr
 												th STT
@@ -48,7 +24,7 @@ block content
 												th Số điện thoại
 												th Thời điểm đăng ký
 												th Tình trạng
-												th Thao tác
+												th Xác nhận 
 										tbody
 											each user, index in userList 
 												tr 
@@ -60,8 +36,9 @@ block content
 													td=moment(user.createdAt).format('DD/MM/YYYY')
 													td=user.confirmSituation
 													td.text-center
-														btn.btn-check.btn.btn-primary.btn-xs(style="margin-right: 5px;" data-toggle='modal' data-target='#checkModal') 
-															i.fas.fa-check
+														if user.confirmSituation=='Chưa xác nhận'
+															btn.btn-a.btn.btn-primary.btn-xs(style="margin-right: 5px;", data-username=user.username) 
+																i.fas.fa-check
 						#checkModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='chechModalLabel' aria-hidden='true')
 							.modal-dialog(role='document')
 								.modal-content
@@ -71,11 +48,11 @@ block content
 											span(aria-hidden='true') &times;
 									form(action="/users/check", method="post")
 										.modal-body
-											input(type="hidden", name="ID")
+											input(type="hidden", name="username")
 											p BẠN ĐÃ LIÊN LẠC HỌC VIÊN?
 										.modal-footer
-											button.btn.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
-											button.btn.btn-outline-light(type='submit') Xác nhận
+											button.btn.btn-outline-light(type='button' data-dismiss='modal' style={'background-color':'black'}) Đóng lại
+											button.btn.btn-outline-light(type='submit' style={'background-color':'black'}) Xác nhận
 							
-//- block script 
-//- 	script(src="/js/check.js") 
+block script 
+	script(src="/js/check.js") 
