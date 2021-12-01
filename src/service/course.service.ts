@@ -31,8 +31,9 @@ export class CourseService{
       });
     }
 
-    async getClass(coursename: string): Promise<Class[]> {
-      return await this.classRepository.query("SELECT * FROM class WHERE coursename = '"+coursename+"';");
+    async getClass(coursename: string): Promise<[]> {
+      return await this.classRepository.query(
+        "SELECT * FROM class C, lecturer_of_class L, teacher T, user U WHERE teacherCmndorvisa=cmndorvisa AND U.username=T.username AND C.ID=L.classID AND coursename = '"+coursename+"';");
     }
 
     async addClass(roc: RegistantOfClass): Promise<void>{

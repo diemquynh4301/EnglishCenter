@@ -14,6 +14,10 @@ export class TeacherService {
         );
     }
 
+    async getAllTeacher(): Promise<[]>{
+        return this.teacherRepository.query("SELECT * FROM teacher T, user U, teacher_degree D WHERE teacherCmndorvisa = cmndorvisa AND U.username = T.username");
+    }
+
     async getTeacher(username: string):Promise<[]>{
         return this.teacherRepository.query(
             "SELECT * FROM teacher WHERE username='"+username+"'"

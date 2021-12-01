@@ -78,6 +78,7 @@ body
                 th Ngày bắt đầu
                 th Ngày kết thúc
                 th Lịch học
+                th Giảng viên
                 th Chi nhánh
                 th
             tbody
@@ -87,6 +88,7 @@ body
                   td=moment(faculty.startday).format('DD/MM/YYYY')
                   td=moment(faculty.endday).format('DD/MM/YYYY')
                   td=faculty.schedule
+                  td=faculty.fullname
                   td=faculty.branchAddress
                   //- td.text-center
                   //-   a.btn.btn-primary(type='button' data-toggle='modal' data-target='#inforModal', data-schedule=faculty.schedule) Chi tiết  
@@ -127,9 +129,8 @@ body
     .footer-one.col-lg-3.col-md-6.col-12
       h5(style={'color': 'white'}) Hệ thống trung tâm
       ul
-        li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
-        li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
-        li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
+        li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
+        li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
     .footer-one.col-lg-3.col-md-6.col-12
       h5(style={'color': 'white'}) Hệ thống tư vấn
       ul

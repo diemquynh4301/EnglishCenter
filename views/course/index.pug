@@ -38,9 +38,9 @@ body
               li
                 a.dropdown-item(href='/login/logout') Đăng xuất
           li.nav-item
-            a.nav-link(href='#') Hỗ trợ
+            a.nav-link(href='#bottom') Hỗ trợ
           li.nav-item
-            a.nav-link(href='#') Liên hệ
+            a.nav-link(href='#bottom') Liên hệ  
           
   // Home
   .container
@@ -65,84 +65,100 @@ body
                     p Học phí: #{course.fee} VND
                     p Số giờ học: #{course.totaltime} giờ 
                     a.button.btn.btn-primary(href='/registration/'+ course.coursename) Chi tiết
+          .small-container
+            h2.title Đội ngũ giảng viên
+            .row1
+                each t in teacherList
+                  .col-4
+                    img(src='dist/img/teacher.jpg')
+                    h2=t.fullname
+                    .rating
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fas.fa-star-half-alt
+                    p Từng đạt được #{t.degreename} #{moment(t.degreedate).fromNow()}, với bề dày kinh nghiệm giảng dạy.
+                    
                   
-            <div class="testimoinial">
-            <div class="small-container">
-            <div class="row">
-            <div class="col-4">
-            <h4> Nguyễn Văn A</h4>
-            <i class="fa fa-quote-left"></i>
-            <p>Sau 7 tháng ôn luyện thì điểm của mình đã vượt target, hi hi, mình overall được 8.0 với band các kĩ năng lần lượt là L: 8.5 , R: 8.5, S: 7.5, W: 6.5, cầu mong writing lên được 7 sau phúc khảo. 
-            </p>
-            <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="far fa-star"></i>
-            </div>
-            </div>
-            <div class="col-4">
-            <h4> Nguyễn Văn B</h4>
-            <i class="fa fa-quote-left"></i>
-            <p>Sau 7 tháng ôn luyện thì điểm của mình đã vượt target, hi hi, mình overall được 8.0 với band các kĩ năng lần lượt là L: 8.5 , R: 8.5, S: 7.5, W: 6.5, cầu mong writing lên được 7 sau phúc khảo.
-            </p>
-            <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="far fa-star"></i>
-            </div>
-            </div>
-            <div class="col-4">
-            <h4> Nguyễn Văn C</h4>
-            <i class="fa fa-quote-left"></i>
-            <p>Sau 7 tháng ôn luyện thì điểm của mình đã vượt target, hi hi, mình overall được 8.0 với band các kĩ năng lần lượt là L: 8.5 , R: 8.5, S: 7.5, W: 6.5, cầu mong writing lên được 7 sau phúc khảo.
-            </p>
-            <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="far fa-star"></i>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <!--footer-->
-  .row(style={'background-color': 'black', 'color': 'white', 'padding':'40px 40px'})
-      .footer-one.col-lg-3.col-md-6.col-12
-        h5(style={'color': 'white'}) Liên kết
-        ul
-          li
-            a(href='#' style={'color': 'white'}) Thi IELTS tại BC
-          li
-            a(href='#' style={'color': 'white'}) Chính sách bảo mật
-          li
-            a(href='#' style={'color': 'white'}) Điều khoản sử dụng
-          li
-            a(href='#' style={'color': 'white'}) Chính sách liên kết
-          li
-            a(href='#' style={'color': 'white'}) Quy chế 
-      .footer-one.col-lg-3.col-md-6.col-12
-        h5(style={'color': 'white'}) Hệ thống trung tâm
-        ul
-          li 16 Nguyễn Văn Huyên, Phường Quan Hoa, Quận Cầu Giấy
-          li 65 Yên Lãng, Phường Trung Liệt, Quận Đống Đa
-          li 12 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình
-      .footer-one.col-lg-3.col-md-6.col-12
-        h5(style={'color': 'white'}) Hệ thống tư vấn
-        ul
-          li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
-          li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
-      .footer-one.col-lg-3.col-md-6.col-12
-        h5(style={'color': 'white'}) Thông tin
-        p Công ty cổ phần Edu
-        p Giấy chứng nhận số:
-        p Ngày cấp phép:
-        p Giấy phép hoạt động
+            //- <div class="testimoinial">
+            //- <div class="small-container">
+            //- <div class="row">
+            //- <div class="col-4">
+            //- <h4> Nguyễn Văn A</h4>
+            //- <i class="fa fa-quote-left"></i>
+            //- <p>Sau 7 tháng ôn luyện thì điểm của mình đã vượt target, hi hi, mình overall được 8.0 với band các kĩ năng lần lượt là L: 8.5 , R: 8.5, S: 7.5, W: 6.5, cầu mong writing lên được 7 sau phúc khảo. 
+            //- </p>
+            //- <div class="rating">
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="far fa-star"></i>
+            //- </div>
+            //- </div>
+            //- <div class="col-4">
+            //- <h4> Nguyễn Văn B</h4>
+            //- <i class="fa fa-quote-left"></i>
+            //- <p>Sau 7 tháng ôn luyện thì điểm của mình đã vượt target, hi hi, mình overall được 8.0 với band các kĩ năng lần lượt là L: 8.5 , R: 8.5, S: 7.5, W: 6.5, cầu mong writing lên được 7 sau phúc khảo.
+            //- </p>
+            //- <div class="rating">
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="far fa-star"></i>
+            //- </div>
+            //- </div>
+            //- <div class="col-4">
+            //- <h4> Nguyễn Văn C</h4>
+            //- <i class="fa fa-quote-left"></i>
+            //- <p>Sau 7 tháng ôn luyện thì điểm của mình đã vượt target, hi hi, mình overall được 8.0 với band các kĩ năng lần lượt là L: 8.5 , R: 8.5, S: 7.5, W: 6.5, cầu mong writing lên được 7 sau phúc khảo.
+            //- </p>
+            //- <div class="rating">
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="fa fa-star"></i>
+            //- <i class="far fa-star"></i>
+            //- </div>
+            //- </div>
+            //- </div>
+            //- </div>
+            //- </div>
+            //- <!--footer-->
+  #bottom
+    .row(style={'background-color': 'black', 'color': 'white', 'padding':'40px 40px'})
+        .footer-one.col-lg-3.col-md-6.col-12
+          h5(style={'color': 'white'}) Liên kết
+          ul
+            li
+              a(href='#' style={'color': 'white'}) Thi IELTS tại BC
+            li
+              a(href='#' style={'color': 'white'}) Chính sách bảo mật
+            li
+              a(href='#' style={'color': 'white'}) Điều khoản sử dụng
+            li
+              a(href='#' style={'color': 'white'}) Chính sách liên kết
+            li
+              a(href='#' style={'color': 'white'}) Quy chế 
+        .footer-one.col-lg-3.col-md-6.col-12
+          h5(style={'color': 'white'}) Hệ thống trung tâm
+          ul
+            li 262 Lũy Bán Bích, quận Tân Phú, TP.HCM
+            li 238 Hoàng Diệu, phường Linh Xuân, quận Thủ Đức, TPHCM
+        .footer-one.col-lg-3.col-md-6.col-12
+          h5(style={'color': 'white'}) Hệ thống tư vấn
+          ul
+            li Tư vấn chương trình học: 1900000000
+            li Tư vấn thi thử: 19000000000
+            li Đăng ký thi BC: 1900000000
+        .footer-one.col-lg-3.col-md-6.col-12
+          h5(style={'color': 'white'}) Thông tin
+          p Công ty cổ phần Edu
+          p Giấy chứng nhận số:
+          p Ngày cấp phép:
+          p Giấy phép hoạt động
           script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous')
           script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js' integrity='sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13' crossorigin='anonymous')
           // jQuery

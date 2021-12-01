@@ -20,6 +20,7 @@ export class RegistrationController{
         const courseList = await this.courseService.getAllCourse();
         var courseTaken = await this.courseService.getOne(params.id);
         var classList = await this.courseService.getClass(courseTaken.coursename);
+        console.log(classList);
         // var classTaken = await this.courseService.getOneClass(params.id);
         return {
             courseList: courseList,
